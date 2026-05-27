@@ -140,6 +140,33 @@
 
     </div>
 
+    <div class="cart-confirm hidden">
+        <!--TELA DE CONFIRMAÇÃO DE PEDIDO-->
+        <button id="fechar">X</button>
+            <div class="order-number-box">
+                <span>NÚMERO DO PEDIDO</span>
+                <h3 id="numero-pedido"></h3>
+            </div>
+            <div class="client-input-box">
+                <label for="nome-cliente">SEU NOME</label>
+                <input type="text" id="nome-cliente" placeholder="Digite seu nome completo" required>
+            </div>
+            <div class="summary-box">
+                <h4>RESUMO DOS ITENS</h4>
+        
+                <div id="resumo-itens-lista">
+                    </div>
+            </div>
+            <div class="checkout-footer">
+                <div class="summary-total-row">
+                    <span>Total a Pagar</span>
+                    <strong id="checkout-total">R$ 0.00</strong>
+                </div>
+        
+                <button id="confirmar-pedido-btn">CONFIRMAR PEDIDO</button>
+            </div>
+        
+    </div>
     <script src="js.js"></script>
 </body>
 </html>

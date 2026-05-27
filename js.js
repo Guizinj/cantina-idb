@@ -230,3 +230,43 @@ document.getElementById('confirm-yes').addEventListener('click', () => {
     // Fecha o modal do carrinho
     document.querySelector('.cart-modal').classList.add('hidden');
 });
+
+// FINALIZAR PEDIDO
+
+document.getElementById('finalizar-btn').addEventListener('click', () =>{
+    // fechando modal do carrinho
+    document.querySelector('.cart-modal').classList.add('hidden');
+
+    // gerando numero do pedido
+    const numeroDoPedido       = Math.floor(Math.random() * 9000) + 1000;
+
+    // pegando onde vai ficar o numero do pedido e guardando na variavel
+    const exibirNumeroDoPedido = document.getElementById('numero-pedido');
+
+    // exibindo o numero do pedido na tela
+    exibirNumeroDoPedido.textContent = `${numeroDoPedido}`
+
+    const lista = document.getElementById('resumo-itens-lista');
+    // map pra percorrer oq estiver no carrinho
+
+    // zera antes de ir pro forEach pra previnir de sempre ficar o mesmo item lá
+    lista.innerHTML = ''
+
+    carrinho.forEach((item) => { 
+    // adicionando informações no html da lista de resumo
+    lista.innerHTML += `<li><span><strong>${item.quantidade}</strong>x </span>${item.nome} - R$ ${item.preco}</li>`; 
+});
+    //removendo classe hidden para que a tela de confirmação apareca
+    document.querySelector('.cart-confirm').classList.remove('hidden');
+    // calculando total 
+    const totalDaConfirmacao = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0)
+    //pegando onde vai ficar o valor total e guardando na variavel
+    const telaTotal = document.getElementById('checkout-total');
+    // inserindo na tela o total
+    telaTotal.textContent = ` R$ ${totalDaConfirmacao.toFixed(2)}`
+});
+// BOTAO DE FECHAR CONFIRMAÇÃO DE PEDIDO
+
+document.getElementById('fechar').addEventListener('click', () =>{
+    document.querySelector('.cart-confirm').classList.add('hidden');
+})

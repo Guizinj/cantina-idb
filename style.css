@@ -514,3 +514,180 @@ body {
     background: var(--lion-bronze);
     color: white;
 }
+
+/* =============================================
+   TELA DE CONFIRMAÇÃO DE PEDIDO (OVERLAY)
+   ============================================= */
+
+.cart-confirm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.85); /* Fundo branco levemente transparente */
+    backdrop-filter: blur(8px); /* Desfoque elegante no cardápio ao fundo */
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    padding: 32px 24px;
+    box-sizing: border-box;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+/* Garante que o hidden funcione corretamente com o display flex */
+.cart-confirm.hidden {
+    display: none !important;
+}
+
+/* Bloco do Número do Pedido */
+.order-number-box {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    margin-bottom: 28px;
+    border: 1px solid #eee;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.order-number-box span {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+#numero-pedido {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-dark, #111);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+/* Campo de Input para o Nome do Cliente */
+.client-input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 28px;
+}
+
+.client-input-box label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--text-dark, #111);
+    letter-spacing: 0.5px;
+}
+
+#nome-cliente {
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid #ddd;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark, #111);
+    background-color: white;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+    outline: none;
+}
+
+#nome-cliente:focus {
+    border-color: #ff5c2b; /* Borda laranja ao clicar */
+}
+
+/* Área de Resumo dos Itens */
+.summary-box {
+    flex: 1; /* Faz o resumo ocupar o espaço disponível empurrando o footer para baixo */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto; /* Permite rolar se a lista de itens for muito grande */
+    margin-bottom: 20px;
+}
+
+.summary-box h4 {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--text-dark, #111);
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 8px;
+    margin: 0;
+}
+
+#resumo-itens-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Estilização para as linhas que o JS vai criar dentro do resumo */
+.resumo-item-linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #444;
+}
+
+.resumo-item-linha .qtd-e-nome {
+    color: var(--text-dark, #111);
+}
+
+.resumo-item-linha .qtd-destaque {
+    color: #ff5c2b; /* Destaca o "2x" em laranja */
+    margin-right: 4px;
+}
+
+/* Rodapé e Botão de Confirmar */
+.checkout-footer {
+    width: 100%;
+    margin-top: auto; /* Empurra firmemente para a base */
+}
+
+.checkout-footer .summary-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    margin-bottom: 20px;
+    border-top: 1px dotted #ccc;
+    color: var(--text-dark, #111);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+#checkout-total {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+#confirmar-pedido-btn {
+    background-color: #ff5c2b; /* Laranja Dribbble */
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 18px;
+    border-radius: 16px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255, 92, 43, 0.25);
+    transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+#confirmar-pedido-btn:active {
+    transform: scale(0.98); /* Efeito de clique físico */
+    background-color: #e04b1f;
+}
