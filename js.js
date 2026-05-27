@@ -267,6 +267,6 @@ document.getElementById('finalizar-btn').addEventListener('click', () =>{
 });
 // BOTAO DE FECHAR CONFIRMAÇÃO DE PEDIDO
 
-document.getElementById('fechar').addEventListener('click', () =>{
+document.getElementById('fecharr').addEventListener('click', () =>{
     document.querySelector('.cart-confirm').classList.add('hidden');
 })

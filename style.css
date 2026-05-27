@@ -673,7 +673,7 @@ body {
 }
 
 #confirmar-pedido-btn {
-    background-color: #ff5c2b; /* Laranja Dribbble */
+    background-color: var(--lion-gold);
     color: white;
     border: none;
     width: 100%;
@@ -690,4 +690,20 @@ body {
 #confirmar-pedido-btn:active {
     transform: scale(0.98); /* Efeito de clique físico */
     background-color: #e04b1f;
+}
+#fecharr {
+    align-self: end;
+    background: var(--bg-dark);
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-weight: 800;
+    cursor: pointer;
+    margin-bottom: 30px;
+    margin-top: -7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.1s ease;
 }
