@@ -132,11 +132,12 @@ body {
 
 .products-grid {
     display: grid; 
+    align-content: start;
     grid-template-columns: repeat(2, 1fr); 
     flex: 1;
     overflow-y: auto;
     background-color: var(--border-color);
-    gap: 4px; 
+    gap: 3px; 
 }
 .products-grid::-webkit-scrollbar {
     display: none;
@@ -149,7 +150,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
-    height: 240px; 
+    height: auto;
+    min-height: 250px;
 }
 
 .product-card.hidden {
