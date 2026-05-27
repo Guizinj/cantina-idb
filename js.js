@@ -222,7 +222,7 @@ document.getElementById('confirm-yes').addEventListener('click', () => {
     carrinho = [];
 
     // Zera o total no botão flutuante
-    telaTotal.textContent = `R$ 0.00`;
+    telaTotal.textContent = ``;
 
     // Fecha o popup
     document.getElementById('confirm-popup').classList.add('hidden');
