@@ -35,7 +35,7 @@
         <main class="products-grid">
             
             <div class="product-card" data-category="salgados">
-                <div class="product-info">
+                <div class="product-info-box">
                     <h2 class="product-name">COXINHA DE FRANGO + COCA</h2>
                     <span class="product-price">R$7.00</span>
                 </div>
@@ -46,7 +46,7 @@
             </div>
 
             <div class="product-card" data-category="salgados">
-                <div class="product-info">
+                <div class="product-info-box">
                     <h2 class="product-name">TORTA DE FRANGO + COCA</h2>
                     <span class="product-price">R$7.00</span>
                 </div>
@@ -57,7 +57,7 @@
             </div>
 
             <div class="product-card" data-category="doces">
-                <div class="product-info">
+                <div class="product-info-box">
                     <h2 class="product-name">BROWNIE</h2>
                     <span class="product-price">R$5.00</span>
                 </div>
@@ -68,7 +68,7 @@
             </div>
 
             <div class="product-card" data-category="doces"> 
-                <div class="product-info">
+                <div class="product-info-box">
                     <h2 class="product-name">FATIA TORTA DE CHOCOLATE</h2>
                     <span class="product-price">R$8.00</span>
                 </div>
@@ -79,7 +79,7 @@
             </div>
 
             <div class="product-card" data-category="doces"> 
-                <div class="product-info">
+                <div class="product-info-box">
                     <h2 class="product-name">FATIA TORTA DE LIMÃO</h2>
                     <span class="product-price">R$8.00</span>
                 </div>
@@ -90,7 +90,7 @@
             </div>
 
             <div class="product-card" data-category="salgados"> 
-                <div class="product-info">
+                <div class="product-info-box">
                     <h2 class="product-name">HOT DOG + COCA</h2>
                     <span class="product-price">R$10.00</span>
                 </div>
@@ -108,21 +108,24 @@
 
         <div class="cart-modal hidden">
             <div class="cart-modal-content">
-                <div class="cart-modal-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <button id="fechar">X</button>
+
+                <button id="fechar">X</button>
+
+                <header class="cart-modal-header">
+                    <h2 class="cart-modal-title">Meu Carrinho</h2>
                     <button id="limpar-tudo-btn" class="clear-cart-btn">Limpar Carrinho</button>
-                </div>
+                </header>
 
                 <div id="lista-itens"></div>
+
                 <div class="modal-footer">
-                <div>
-                    <span>Total</span>
-                    <strong id="modal-total">R$ 0.00</strong>
+                    <div>
+                        <span>Total</span>
+                        <strong id="modal-total" class="total-val">R$ 0.00</strong>
+                    </div>
+                    <button id="finalizar-btn">Finalizar Pedido</button>
                 </div>
-                <button id="finalizar-btn">Finalizar Pedido</button>
             </div>
-            </div>
-            
         </div>
 
         <div id="confirm-popup" class="popup-overlay hidden">
@@ -136,7 +139,6 @@
         </div>
 
     </div>
-
 
     <script src="js.js"></script>
 </body>

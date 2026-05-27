@@ -303,6 +303,14 @@ body {
     flex-direction: column;
     box-shadow: 0 -10px 30px rgba(0,0,0,0.3);
 }
+/* Cabecario do modal */
+.cart-modal-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
 
 /* Área de Rolagem dos Itens */
 #lista-itens {
@@ -374,7 +382,7 @@ body {
 
 /* Botão Fechar Modal (X) */
 #fechar {
-    align-self: flex-end;
+    align-self: flex-start;
     background: var(--bg-dark);
     color: var(--lion-gold);
     border: 1px solid var(--lion-gold);
@@ -399,9 +407,9 @@ body {
 .clear-cart-btn {
     background: transparent;
     border: none;
-    color: var(--danger-lion);
+    color: rgba(255, 0, 0, 0.596);
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     cursor: pointer;
 }
 
