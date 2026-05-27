@@ -138,6 +138,9 @@ body {
     background-color: var(--border-color);
     gap: 4px; 
 }
+.products-grid::-webkit-scrollbar {
+    display: none;
+}
 
 .product-card {
     background-color: var(--bg-light);
@@ -459,41 +462,4 @@ body {
     transform: scale(0.95);
     background: var(--lion-bronze);
     color: white;
-}
-
-.app-footer {
-    background-color: var(--bg-dark);
-    padding: 10px 16px 30px 16px; 
-    text-align: center;
-    margin-top: auto; 
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
-}
-
-.footer-divider {
-    width: 40px;
-    height: 3px;
-    background-color: var(--lion-gold);
-    margin: 0 auto 12px auto;
-    border-radius: 2px;
-}
-
-.footer-brand {
-    color: white;
-    font-size: 0.9rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-}
-
-.footer-info {
-    color: var(--text-muted);
-    font-size: 0.75rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.footer-socials {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.7rem;
-    font-weight: 400;
 }
