@@ -1,0 +1,474 @@
+/* Importando uma fonte limpa e moderna */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+:root {
+    /* NOVA PALETA DE CORES: IDENTIDADE LEÃO */
+    --bg-dark: #121212;          /* Preto Profundo (Juba Negra/Noite) */
+    --lion-gold: #d4af37;        /* Ouro Real (Coroa/Olhar do Leão) */
+    --lion-bronze: #b87333;      /* Bronze Quente (Pelagem/Força) */
+    --bg-light: #fdfaf2;         /* Areia Suave (Fundo Confortável) */
+    --text-dark: #1c150c;        /* Marrom Escuro Quase Preto */
+    --text-muted: #a38a63;       /* Dourado Queimado/Fosco */
+    --border-color: #e6dfd1;     /* Linhas de Divisão Suaves */
+    --danger-lion: #9e2a2b;      /* Vermelho Realeza (Para remoções/alertas) */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: #2b2318; /* Marrom escuro ao fundo destaca o celular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0px;
+}
+
+/* Container simulando a tela do celular */
+.app-container {
+    width: 375px;
+    height: 100vh;
+    background-color: var(--bg-light);
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER BLACK PREMIUM */
+.app-header {
+    background-color: var(--bg-dark);
+    padding: 16px 20px 24px 20px;
+    position: relative;
+    border-bottom: 2px solid var(--lion-gold); /* Linha dourada sob o header */
+}
+
+/* Detalhe da Câmera / Dynamic Island */
+.dynamic-island {
+    width: 110px;
+    height: 30px;
+    background-color: #000000;
+    border-radius: 15px;
+    margin: 0 auto 15px auto;
+}
+
+/* Barra de Topo (Perfil, Localização, Busca) */
+.top-bar {
+    display: flex;
+    justify-content: space-between; /* Corrigido de 'center' para separar os itens */
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.icon-btn {
+    background: rgba(212, 175, 55, 0.15); /* Botões com toque dourado translúcido */
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--lion-gold);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    background: var(--lion-gold);
+    color: var(--bg-dark);
+}
+
+.location-picker {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--text-muted);
+    padding: 6px 16px;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.location-picker .pin { color: var(--lion-gold); font-size: 1.1rem; margin-right: 6px; }
+.location-picker .arrow { color: var(--lion-gold); font-size: 1.2rem; margin-left: 6px; }
+
+/* Título Principal */
+.main-title {
+    color: white;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: 1px;
+    margin-bottom: 35px;
+}
+
+/* Categorias Horizontais */
+.categories-nav {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 5px;
+}
+
+.categories-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.category-item {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 6px 0;
+}
+
+.category-item.active {
+    background-color: var(--lion-gold);
+    color: var(--bg-dark);
+    padding: 6px 16px;
+    border-radius: 15px;
+}
+
+.products-grid {
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    flex: 1;
+    overflow-y: auto;
+    background-color: var(--border-color);
+    gap: 4px; 
+}
+
+.product-card {
+    background-color: var(--bg-light);
+    padding: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    height: 240px; 
+}
+
+.product-card.hidden {
+    display: none;
+}
+
+.product-name {
+    font-size: 0.8rem;
+    color: var(--text-dark);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.product-price {
+    font-size: 0.9rem;
+    color: var(--lion-bronze); 
+    font-weight: 800;
+}
+
+.product-image-container {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    margin-top: 10px;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain; 
+}
+/* Botão de Adicionar (+) */
+.add-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--lion-gold);
+    background: var(--bg-dark);
+    color: var(--lion-gold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.2s;
+}
+
+.add-btn:active {
+    transform: scale(0.9);
+    background: var(--lion-gold);
+    color: var(--bg-dark);
+}
+
+/* BOTÃO FLUTUANTE DO CARRINHO (Soberano no rodapé) */
+.cart-floating-btn {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--bg-dark);
+    color: white;
+    padding: 8px;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--lion-gold);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.cart-floating-btn .material-symbols-outlined {
+    font-size: 1.4rem;
+    color: var(--lion-gold);
+    margin-bottom: 2px;
+}
+
+.cart-total {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: white;
+}
+
+/* MODAL INTEIRO (Fundo escurecido) */
+.cart-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(5px); 
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.cart-modal.hidden {
+    display: none;
+}
+
+/* CONTAINER DO CARRINHO */
+.cart-modal-content {    
+    height: 65%;
+    background-color: var(--bg-light);
+    width: 100%;
+    border-radius: 30px 30px 0 0;
+    border-top: 3px solid var(--lion-gold); /* Coroa dourada no topo do carrinho */
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.3);
+}
+
+/* ÁREA DA LISTA */
+#lista-itens {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#lista-itens::-webkit-scrollbar {
+    width: 4px;
+}
+
+#lista-itens::-webkit-scrollbar-thumb {
+    background-color: var(--lion-gold);
+    border-radius: 10px;
+}
+
+/* LINHA DE CADA ITEM NO CARRINHO */
+.item-linha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 12px 14px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.item-info {
+    display: flex;
+    align-items: center;
+    color: var(--text-dark);
+}
+
+.item-info strong {
+    color: var(--lion-bronze); /* O multiplicador (ex: 2x) ganha destaque */
+    margin-right: 4px;
+}
+
+/* Botão individual de remover (-) */
+.remove-item-btn {
+    background: #fff0f0;
+    border: 1px solid rgba(158, 42, 43, 0.2);
+    color: var(--danger-lion);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.remove-item-btn:active {
+    background: var(--danger-lion);
+    color: white;
+}
+
+/* BOTÃO FECHAR (O "X") */
+#fechar {
+    align-self: flex-end;
+    background: var(--bg-dark);
+    color: var(--lion-gold);
+    border: 1px solid var(--lion-gold);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-weight: 800;
+    cursor: pointer;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.1s ease;
+}
+
+#fechar:active {
+    transform: scale(0.9);
+}
+
+/* Botão de Limpar Carrinho */
+.clear-cart-btn {
+    background: transparent;
+    border: none;
+    color: var(--danger-lion);
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+/* POPUP DE CONFIRMAÇÃO CUSTOMIZADO (Tema Alerta Real) */
+.popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 110;
+}
+
+.popup-overlay.hidden {
+    display: none;
+}
+
+.popup-box {
+    background: white;
+    padding: 24px;
+    border-radius: 24px;
+    width: 85%;
+    text-align: center;
+    border-top: 4px solid var(--danger-lion);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.popup-box p {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.popup-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.popup-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background: var(--border-color);
+    color: var(--text-dark);
+}
+
+.btn-confirm {
+    background: var(--danger-lion);
+    color: white;
+}
+
+/* RODAPÉ DO MODAL (Preço e Finalizar) */
+.modal-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.modal-footer span {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+#finalizar-btn {
+    background: var(--lion-gold);
+    color: var(--bg-dark);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    transition: all 0.2s;
+}
+
+#finalizar-btn:active {
+    transform: scale(0.95);
+    background: var(--lion-bronze);
+    color: white;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantina IDB</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="c.webp" type="image/x-icon">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <header class="app-header">
+            <div class="dynamic-island"></div>
+
+            <div class="top-bar">
+                <div class="location-picker">
+                    <span class="material-symbols-outlined pin">location_on</span>
+                    <span class="location-text">IDB CARUARU</span>
+                    <span class="material-symbols-outlined arrow">expand_more</span>
+                </div>
+            </div>
+
+            <h1 class="main-title">
+                ESSE É O NOSSO<br>CARDÁPIO<br>DE HOJE!
+            </h1>
+
+            <nav class="categories-nav">
+                <a href="#" class="category-item active" data-filter="todos">PARA VOCÊ</a>
+                <a href="#" class="category-item" data-filter="salgados">SALGADOS</a>
+                <a href="#" class="category-item" data-filter="doces">DOCES</a>
+            </nav>
+        </header>
+
+        <main class="products-grid">
+            
+            <div class="product-card" data-category="salgados">
+                <div class="product-info">
+                    <h2 class="product-name">COXINHA DE FRANGO <br> + COCA</h2>
+                    <span class="product-price">R$7.00</span>
+                </div>
+                <div class="product-image-container">
+                    <img src="c.webp" alt="Coxinha de Frango" class="product-image">
+                </div>
+                <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
+            </div>
+
+            <div class="product-card" data-category="salgados">
+                <div class="product-info">
+                    <h2 class="product-name">TORTA DE FRANGO <br> + COCA</h2>
+                    <span class="product-price">R$7.00</span>
+                </div>
+                <div class="product-image-container">
+                    <img src="f.webp" alt="Torta de Frango" class="product-image">
+                </div>
+                <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
+            </div>
+
+            <div class="product-card" data-category="doces">
+                <div class="product-info">
+                    <h2 class="product-name">BROWNIE RECHEADO</h2>
+                    <span class="product-price">R$5.00</span>
+                </div>
+                <div class="product-image-container">
+                    <img src="br.webp" alt="Brownie" class="product-image">
+                </div>
+                <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
+            </div>
+
+            <div class="product-card" data-category="doces"> 
+                <div class="product-info">
+                    <h2 class="product-name">BOLO DE CHOCOLATE</h2>
+                    <span class="product-price">R$5.00</span>
+                </div>
+                <div class="product-image-container">
+                    <img src="bo.webp" alt="Bolo com Cobertura" class="product-image">
+                </div>
+                <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
+            </div>
+        </main>
+
+        <div class="cart-floating-btn">
+            <span class="material-symbols-outlined">shopping_bag</span>
+            <span class="cart-total">R$0.0</span>
+        </div>
+
+        <div class="cart-modal hidden">
+            <div class="cart-modal-content">
+                <div class="cart-modal-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <button id="fechar">X</button>
+                    <button id="limpar-tudo-btn" class="clear-cart-btn">Limpar Carrinho</button>
+                </div>
+
+                <div id="lista-itens"></div>
+                <div class="modal-footer">
+                <div>
+                    <span>Total</span>
+                    <strong id="modal-total">R$ 0.00</strong>
+                </div>
+                <button id="finalizar-btn">Finalizar Pedido</button>
+            </div>
+            </div>
+            
+        </div>
+
+        <div id="confirm-popup" class="popup-overlay hidden">
+            <div class="popup-box">
+                <p>Tem certeza que deseja esvaziar o seu carrinho?</p>
+                <div class="popup-actions">
+                    <button id="confirm-cancel" class="popup-btn btn-cancel">Cancelar</button>
+                    <button id="confirm-yes" class="popup-btn btn-confirm">Sim, limpar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="js.js"></script>
+</body>
+</html>
