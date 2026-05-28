@@ -29,7 +29,9 @@ function filtrarProdutos(categoria) {
 
 // Adiciona um listener de clique em cada botão de categoria
 botoes.forEach(botao => {
-    botao.addEventListener('click', () => {
+    botao.addEventListener('click', (e) => {
+        
+        e.preventDefault();
 
         // Remove a classe 'active' do botão que estava ativo antes
         document.querySelector('.category-item.active').classList.remove('active');
