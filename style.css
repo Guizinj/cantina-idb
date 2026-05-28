@@ -531,7 +531,7 @@ body {
     -webkit-backdrop-filter: blur(8px);
     display: flex;
     flex-direction: column;
-    padding: 24px;
+    padding: 50px 30px;
     box-sizing: border-box;
     z-index: 10000;
     transition: all 0.3s ease;
@@ -694,12 +694,12 @@ body {
     background-color: #e04b1f;
 }
 #fecharr {
-    align-self: flex-end;
-    background: var(--bg-dark);
-    color: white;
+    align-self: flex-start;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
     width: 32px;
     height: 32px;
-    border-radius: 50%;
+    border: none;
     font-weight: 800;
     cursor: pointer;
     margin-bottom: 12px;
