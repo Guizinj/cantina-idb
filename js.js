@@ -331,6 +331,6 @@ document.getElementById('confirmar-pedido-btn').addEventListener('click', () =>{
     setTimeout(() => {
         document.getElementById('popup-sucesso').classList.add('hidden');
         window.location.href = url;
-    }, 1300)
+    }, 1300);
     
-}) 
+});
