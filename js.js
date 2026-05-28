@@ -330,7 +330,7 @@ document.getElementById('confirmar-pedido-btn').addEventListener('click', () =>{
     // abre o whats depois de 2sgs
     setTimeout(() => {
         document.getElementById('popup-sucesso').classList.add('hidden');
-        window.open(url)
+        window.location.href = url;
     }, 1300)
     
-})
+}) 
