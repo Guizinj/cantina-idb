@@ -710,3 +710,47 @@ body {
     transition: transform 0.1s ease;
     flex-shrink: 0;
 }
+
+ /* POOUP CONFIRMAÇÃO*/
+ .popup-sucesso {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4); /* Fundo escuro bem leve */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100000; /* Por cima de absolutamente tudo */
+}
+
+/* Esconde o popup */
+.popup-sucesso.hidden {
+    display: none !important;
+}
+
+/* Card central */
+.popup-sucesso-content {
+    background-color: var(--bg-dark);
+    color: white;
+    padding: 20px 32px;
+    border-radius: 16px;
+    border: 1px solid var(--lion-gold);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.popup-sucesso-content span {
+    color: var(--lion-gold);
+    font-size: 2.5rem;
+}
+
+.popup-sucesso-content p {
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}

@@ -298,15 +298,15 @@ document.getElementById('confirmar-pedido-btn').addEventListener('click', () =>{
     if(!nomeCliente.trim() || nomeCliente.length === 1){
         return alert('Por favor, digite seu nome antes de confirmar o pedido!')
     }
-
+    // criando variavel pra poder jogar informação dentro
     let texto_confirm = ''
-
+    // for each pra percorrer cada item,quantidade e preco e acrescentae um texto a ele
     carrinho.forEach((item) => {
         texto_confirm += `\n${item.quantidade}x ${item.nome} — R$ ${(item.preco * item.quantidade).toFixed(2)}`
     })
-
+    // soma do carrinho
     const total = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0)
-
+    // mensagem que chega no whatsApp
     const mensagem = 
     `CANTINA IDB — PEDIDO #${numeroDoPedido_confirm}
     ------------------------------
@@ -318,6 +318,16 @@ document.getElementById('confirmar-pedido-btn').addEventListener('click', () =>{
     TOTAL: R$ ${total.toFixed(2)}
     ------------------------------
     Pedido enviado pelo app da Cantina IDB.`
+    // variavel quer ler msg e codifica pra URL
     const url = `https://wa.me/5581993369736?text=${encodeURIComponent(mensagem)}`
-    window.open(url)    
+
+    // POPUP DE CONFIRMAÇÃO
+    document.getElementById('popup-sucesso').classList.remove('hidden');
+
+    // abre o whats depois de 2sgs
+    setTimeout(() => {
+        document.getElementById('popup-sucesso').classList.add('hidden');
+        window.open(url)
+    }, 2000)
+    
 })
