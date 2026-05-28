@@ -30,7 +30,7 @@ function filtrarProdutos(categoria) {
 // Adiciona um listener de clique em cada botão de categoria
 botoes.forEach(botao => {
     botao.addEventListener('click', (e) => {
-        
+
         e.preventDefault();
 
         // Remove a classe 'active' do botão que estava ativo antes
@@ -126,6 +126,12 @@ document.querySelector('.cart-floating-btn').addEventListener('click', () => {
 
     // Remove o hidden do modal, tornando ele visível
     document.querySelector('.cart-modal').classList.remove('hidden');
+
+    // [NOVO]: Força a página inteira a rolar até o final (fundo)
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth' // Faz a rolagem ser suave e bonita
+    });
 
     // Variável que vai acumular o HTML de cada item para inserir de uma vez
     let listaHTML = '';
@@ -260,6 +266,12 @@ document.getElementById('finalizar-btn').addEventListener('click', () =>{
 });
     //removendo classe hidden para que a tela de confirmação apareca
     document.querySelector('.cart-confirm').classList.remove('hidden');
+    // [NOVO]: Força a página a pular direto para o topo absoluto (início)
+    window.scrollTo({
+        top: 0,
+        behavior: 'auto' // 'auto' faz o pulo ser instantâneo para não atrasar o usuário
+});
+
     // calculando total 
     const totalDaConfirmacao = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0)
     //pegando onde vai ficar o valor total e guardando na variavel
