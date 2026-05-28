@@ -238,9 +238,9 @@ document.getElementById('confirm-yes').addEventListener('click', () => {
     // Fecha o modal do carrinho
     document.querySelector('.cart-modal').classList.add('hidden');
 });
-
-// FINALIZAR PEDIDO
-
+        //─────────────────────────────────────────────
+                    // FINALIZAR PEDIDO
+        //─────────────────────────────────────────────
 document.getElementById('finalizar-btn').addEventListener('click', () =>{
     // fechando modal do carrinho
     document.querySelector('.cart-modal').classList.add('hidden');
@@ -283,4 +283,29 @@ document.getElementById('finalizar-btn').addEventListener('click', () =>{
 
 document.getElementById('fecharr').addEventListener('click', () =>{
     document.querySelector('.cart-confirm').classList.add('hidden');
+})
+
+        //─────────────────────────────────────
+                // CONFIRMAR PEDIDO
+        //─────────────────────────────────────
+
+document.getElementById('confirmar-pedido-btn').addEventListener('click', () =>{
+    // pegando numero do pedido
+    const numeroDoPedido_confirm = document.getElementById('numero-pedido').textContent;
+    // pegando nome do cliente
+    const nomeCliente = document.getElementById('nome-cliente').value;
+    // validando nome do cliente
+    if(!nomeCliente.trim()){
+        return alert('Por favor, digite seu nome antes de confirmar o pedido!')
+    }
+
+    let texto_confirm = ''
+
+    carrinho.forEach((item) => {
+        texto_confirm += `\n- ${item.quantidade}x ${item.nome} - R$ ${(item.preco * item.quantidade).toFixed(2)}`
+    })
+
+    const mensagem = `Olá! Novo pedido:\nNúmero: ${numeroDoPedido_confirm}\nNome: ${nomeCliente}\n\nPedido:${texto_confirm}\n...`
+    const url = `https://wa.me/5581993369736?text=${encodeURIComponent(mensagem)}`
+    window.open(url)    
 })
