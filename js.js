@@ -328,6 +328,6 @@ document.getElementById('confirmar-pedido-btn').addEventListener('click', () =>{
     setTimeout(() => {
         document.getElementById('popup-sucesso').classList.add('hidden');
         window.open(url)
-    }, 2000)
+    }, 1300)
     
 })
