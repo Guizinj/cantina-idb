@@ -295,7 +295,7 @@ document.getElementById('confirmar-pedido-btn').addEventListener('click', () =>{
     // pegando nome do cliente
     const nomeCliente = document.getElementById('nome-cliente').value;
     // validando nome do cliente
-    if(!nomeCliente.trim()){
+    if(!nomeCliente.trim() || nomeCliente.length === 1){
         return alert('Por favor, digite seu nome antes de confirmar o pedido!')
     }
 
