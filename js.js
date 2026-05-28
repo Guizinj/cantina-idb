@@ -156,7 +156,7 @@ document.querySelector('.cart-floating-btn').addEventListener('click', () => {
                              style="width:40px;height:40px;object-fit:contain;margin-right:10px;border-radius:5px;">
                         <span><strong>${item.quantidade}x</strong> ${item.nome} - R$${precoSubtotal.toFixed(2)}</span>
                     </div>
-                    <button class="remove-item-btn" data-index="${index}">-</button>
+                    <button class="remove-item-btn" data-index="${index}">x</button>
                 </div>`;
         });
     }
@@ -287,51 +287,6 @@ document.getElementById('finalizar-btn').addEventListener('click', () =>{
 document.getElementById('fecharr').addEventListener('click', () =>{
     document.querySelector('.cart-confirm').classList.add('hidden');
 })
-
-        /*//─────────────────────────────────────
-                // CONFIRMAR PEDIDO
-        //─────────────────────────────────────
-
-document.getElementById('confirmar-pedido-btn').addEventListener('click', () =>{
-    // pegando numero do pedido
-    const numeroDoPedido_confirm = document.getElementById('numero-pedido').textContent;
-    // pegando nome do cliente
-    const nomeCliente = document.getElementById('nome-cliente').value;
-    // validando nome do cliente
-    if(!nomeCliente.trim() || nomeCliente.length === 1){
-        return alert('Por favor, digite seu nome antes de confirmar o pedido!')
-    }
-    // criando variavel pra poder jogar informação dentro
-    let texto_confirm = ''
-    // for each pra percorrer cada item,quantidade e preco e acrescentae um texto a ele
-    carrinho.forEach((item) => {
-        texto_confirm += `\n${item.quantidade}x ${item.nome} — R$ ${(item.preco * item.quantidade).toFixed(2)}`
-    })
-    // soma do carrinho
-    const total = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0)
-    // mensagem que chega no whatsApp
-    const mensagem = 
-`CANTINA IDB — PEDIDO #${numeroDoPedido_confirm}
-------------------------------
-Cliente: ${nomeCliente}
-
-ITENS:
-${texto_confirm}
-------------------------------
-TOTAL: R$ ${total.toFixed(2)}
-------------------------------
-Pedido enviado pelo app da Cantina IDB.`
-    // variavel quer ler msg e codifica pra URL
-    const url = `https://wa.me/5581993369736?text=${encodeURIComponent(mensagem)}`
-
-    // POPUP DE CONFIRMAÇÃO
-    document.getElementById('popup-sucesso').classList.remove('hidden');
-
-    setTimeout(() => {
-        document.getElementById('popup-sucesso').classList.add('hidden');
-    }, 1300);
-    
-});*/
 
 //─────────────────────────────────────
         //          CONFIRMAR PEDIDO
