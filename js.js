@@ -324,13 +324,21 @@ Pedido enviado pelo app da Cantina IDB.`
     // variavel quer ler msg e codifica pra URL
     const url = `https://wa.me/5581993369736?text=${encodeURIComponent(mensagem)}`
 
-    // POPUP DE CONFIRMAÇÃO
-    document.getElementById('popup-sucesso').classList.remove('hidden');
+   // POPUP DE CONFIRMAÇÃO
+document.getElementById('popup-sucesso').classList.remove('hidden');
 
-    // abre o whats depois de 2sgs
-    setTimeout(() => {
-        document.getElementById('popup-sucesso').classList.add('hidden');
-        window.location.href = url;
-    }, 1300);
+// abre o whats depois de 1.3sgs
+setTimeout(() => {
+    document.getElementById('popup-sucesso').classList.add('hidden');
+    
+    // [TRUQUE DO TARGET BLANK]: Criamos um link invisível na memória
+    const linkInvisivel = document.createElement('a');
+    linkInvisivel.href = url;
+    linkInvisivel.target = '_blank'; // Aqui está o seu target blank!
+    linkInvisivel.rel = 'noopener noreferrer'; // Boa prática de segurança
+    
+    // Força o clique simulado para abrir em nova aba/ir pro app
+    linkInvisivel.click();
+}, 1300);
     
 });
