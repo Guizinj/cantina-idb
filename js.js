@@ -311,16 +311,16 @@ document.getElementById('confirmar-pedido-btn').addEventListener('click', () =>{
     const total = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0)
     // mensagem que chega no whatsApp
     const mensagem = 
-    `CANTINA IDB — PEDIDO #${numeroDoPedido_confirm}
-    ------------------------------
-    Cliente: ${nomeCliente}
+`CANTINA IDB — PEDIDO #${numeroDoPedido_confirm}
+------------------------------
+Cliente: ${nomeCliente}
 
-    ITENS:
-    ${texto_confirm}
-    ------------------------------
-    TOTAL: R$ ${total.toFixed(2)}
-    ------------------------------
-    Pedido enviado pelo app da Cantina IDB.`
+ITENS:
+${texto_confirm}
+------------------------------
+TOTAL: R$ ${total.toFixed(2)}
+------------------------------
+Pedido enviado pelo app da Cantina IDB.`
     // variavel quer ler msg e codifica pra URL
     const url = `https://wa.me/5581993369736?text=${encodeURIComponent(mensagem)}`
 
