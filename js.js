@@ -307,7 +307,7 @@ document.getElementById('confirmar-pedido-btn').addEventListener('click', () =>{
 
     const total = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0)
 
-    const mensagem = `-------\nOlá! Novo pedido:\nNúmero: ${numeroDoPedido_confirm}\nNome: ${nomeCliente}\n\nPedido:${texto_confirm}\nTotal do pedido R$${total.toFixed(2)}\n---------`
+    const mensagem = `─────────────────────────────────────\nOlá! Novo pedido saindo.\nNúmero: ${numeroDoPedido_confirm}\nNome: ${nomeCliente}\n\nPedido:${texto_confirm}\nTotal do pedido R$ ${total.toFixed(2)}\n─────────────────────────────────────`
     const url = `https://wa.me/5581993369736?text=${encodeURIComponent(mensagem)}`
     window.open(url)    
 })
