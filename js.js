@@ -390,6 +390,10 @@ Pedido enviado pelo app da Cantina IDB.`;
         // Esconde o popup logo em seguida para o site voltar ao normal
         popup.classList.add('hidden');
     });
+
+    popup.addEventListener('click', () =>{
+        popup.classList.add('hidden');
+    })
 });
 
 
