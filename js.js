@@ -288,7 +288,7 @@ document.getElementById('fecharr').addEventListener('click', () =>{
     document.querySelector('.cart-confirm').classList.add('hidden');
 })
 
-        //─────────────────────────────────────
+        /*//─────────────────────────────────────
                 // CONFIRMAR PEDIDO
         //─────────────────────────────────────
 
@@ -324,21 +324,81 @@ Pedido enviado pelo app da Cantina IDB.`
     // variavel quer ler msg e codifica pra URL
     const url = `https://wa.me/5581993369736?text=${encodeURIComponent(mensagem)}`
 
-   // POPUP DE CONFIRMAÇÃO
-document.getElementById('popup-sucesso').classList.remove('hidden');
+    // POPUP DE CONFIRMAÇÃO
+    document.getElementById('popup-sucesso').classList.remove('hidden');
 
-// abre o whats depois de 1.3sgs
-setTimeout(() => {
-    document.getElementById('popup-sucesso').classList.add('hidden');
+    setTimeout(() => {
+        document.getElementById('popup-sucesso').classList.add('hidden');
+    }, 1300);
     
-    // [TRUQUE DO TARGET BLANK]: Criamos um link invisível na memória
-    const linkInvisivel = document.createElement('a');
-    linkInvisivel.href = url;
-    linkInvisivel.target = '_blank'; // Aqui está o seu target blank!
-    linkInvisivel.rel = 'noopener noreferrer'; // Boa prática de segurança
+});*/
+
+//─────────────────────────────────────
+        //          CONFIRMAR PEDIDO
+        //─────────────────────────────────────
+
+document.getElementById('confirmar-pedido-btn').addEventListener('click', () => {
+    // Pegando número do pedido
+    const numeroDoPedido_confirm = document.getElementById('numero-pedido').textContent;
     
-    // Força o clique simulado para abrir em nova aba/ir pro app
-    linkInvisivel.click();
-}, 1300);
+    // Pegando nome do cliente
+    const nomeCliente = document.getElementById('nome-cliente').value;
     
+    // Validando nome do cliente (não aceita vazio e nem apenas 1 letra)
+    if(!nomeCliente.trim() || nomeCliente.length === 1){
+        return alert('Por favor, digite seu nome antes de confirmar o pedido!');
+    }
+    
+    // Criando variável pra poder jogar informação dentro
+    let texto_confirm = '';
+    
+    // For Each pra percorrer cada item, quantidade e preço e acrescentar um texto a ele
+    carrinho.forEach((item) => {
+        texto_confirm += `\n${item.quantidade}x ${item.nome} — R$ ${(item.preco * item.quantidade).toFixed(2)}`;
+    });
+    
+    // Soma do carrinho
+    const total = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
+    
+    // Mensagem formatada que chega no WhatsApp
+    const mensaje = 
+`CANTINA IDB — PEDIDO #${numeroDoPedido_confirm}
+------------------------------
+Cliente: ${nomeCliente}
+
+ITENS:
+${texto_confirm}
+------------------------------
+TOTAL: R$ ${total.toFixed(2)}
+------------------------------
+Pedido enviado pelo app da Cantina IDB.`;
+
+    // Variável que lê a msg e codifica para o padrão de URL
+    const url = `https://wa.me/5581993369736?text=${encodeURIComponent(mensaje)}`;
+
+    // [PASSO 1]: Abre o popup de confirmação na tela do usuário
+    const popup = document.getElementById('popup-sucesso');
+    popup.classList.remove('hidden');
+
+    // [PASSO 2]: Escuta o clique do botão verde de ENVIAR que está DENTRO do popup
+    const botaoEnviarWhats = document.getElementById('popup-enviar-whats-btn');
+    
+    botaoEnviarWhats.addEventListener('click', () => {
+        // Abre o WhatsApp imediatamente (Safari e Chrome liberam por ser um clique direto)
+        window.open(url, '_blank');
+        
+        // Esconde o popup logo em seguida para o site voltar ao normal
+        popup.classList.add('hidden');
+    });
 });
+
+
+
+
+
+
+
+
+
+
+

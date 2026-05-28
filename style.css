@@ -754,3 +754,22 @@ body {
     font-size: 1rem;
     letter-spacing: 0.5px;
 }
+
+.popup-btn-whats {
+    background-color: #25D366; /* Verde do WhatsApp */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: transform 0.2s, background-color 0.2s;
+    width: 100%; /* Ocupa a largura do card do popup */
+}
+
+.popup-btn-whats:active {
+    transform: scale(0.98);
+    background-color: #20ba5a; /* Um verde levemente mais escuro ao clicar */
+}
