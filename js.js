@@ -242,6 +242,9 @@ document.getElementById('confirm-yes').addEventListener('click', () => {
                     // FINALIZAR PEDIDO
         //─────────────────────────────────────────────
 document.getElementById('finalizar-btn').addEventListener('click', () =>{
+    if(carrinho.length===0){
+        return
+    }
     // fechando modal do carrinho
     document.querySelector('.cart-modal').classList.add('hidden');
 
