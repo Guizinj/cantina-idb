@@ -535,10 +535,10 @@ body {
 }
 
 /* Texto de Total no Carrinho */
-.modal-footer span {
+.modal-footer span, .modal-footer strong {
     font-size: 1rem;
     font-weight: 800;
-    color: rgb(0, 0, 0);
+    color: var(--textofinal);
 }
 
 /* Botão Finalizar Pedido */
