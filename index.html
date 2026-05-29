@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Cantina IDB</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylechat.css">
     <link rel="shortcut icon" href="favi.jpg" type="image/x-icon">
 </head>
 <body>
@@ -14,11 +14,13 @@
         
         <header class="app-header">
             <div class="top-bar">
+                <button class="icon-btn"><span class="material-symbols-outlined">search</span></button>
                 <div class="location-picker">
                     <span class="material-symbols-outlined pin">location_on</span>
                     <span class="location-text">IDB CARUARU</span>
                     <span class="material-symbols-outlined arrow">expand_more</span>
                 </div>
+                <button class="icon-btn"><span class="material-symbols-outlined theme-toggle-btn">contrast</span></button>
             </div>
 
             <h1 class="main-title">
@@ -36,7 +38,7 @@
             
             <div class="product-card" data-category="salgados">
                 <div class="product-info-box">
-                    <h2 class="product-name">COXINHA DE FRANGO + COCA</h2>
+                    <h2 class="product-name">COXINHA DE FRANGO</h2>
                     <span class="product-price">R$7.00</span>
                 </div>
                 <div class="product-image-container">
@@ -47,7 +49,7 @@
 
             <div class="product-card" data-category="salgados">
                 <div class="product-info-box">
-                    <h2 class="product-name">TORTA DE FRANGO + COCA</h2>
+                    <h2 class="product-name">TORTA DE FRANGO</h2>
                     <span class="product-price">R$7.00</span>
                 </div>
                 <div class="product-image-container">
@@ -78,27 +80,6 @@
                 <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
             </div>
 
-            <div class="product-card" data-category="doces"> 
-                <div class="product-info-box">
-                    <h2 class="product-name">FATIA TORTA DE LIMÃO</h2>
-                    <span class="product-price">R$8.00</span>
-                </div>
-                <div class="product-image-container">
-                    <img src="l.webp" alt="Bolo com Cobertura" class="product-image">
-                </div>
-                <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
-            </div>
-
-            <div class="product-card" data-category="salgados"> 
-                <div class="product-info-box">
-                    <h2 class="product-name">HOT DOG + COCA</h2>
-                    <span class="product-price">R$10.00</span>
-                </div>
-                <div class="product-image-container">
-                    <img src="h.webp" alt="Bolo com Cobertura" class="product-image">
-                </div>
-                <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
-            </div>
         </main>
 
         <div class="cart-floating-btn">
@@ -157,7 +138,7 @@
             </div>
             <div class="checkout-footer">
                 <div class="summary-total-row">
-                    <span>Total a Pagar</span>
+                    <span>TOTAL A PAGAR</span>
                     <strong id="checkout-total">R$ 0.00</strong>
                 </div>
         

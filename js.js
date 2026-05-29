@@ -263,9 +263,15 @@ document.getElementById('finalizar-btn').addEventListener('click', () =>{
     // zera antes de ir pro forEach pra previnir de sempre ficar o mesmo item lá
     lista.innerHTML = ''
 
-    carrinho.forEach((item) => { 
     // adicionando informações no html da lista de resumo
-    lista.innerHTML += `<li><span><strong>${item.quantidade}</strong>x </span>${item.nome} - R$ ${item.preco}</li>`; 
+    carrinho.forEach((item) => { 
+        if(item.quantidade > 1){
+            lista.innerHTML += `<li><span><strong>${item.quantidade}</strong>x </span>${item.nome} - R$ ${item.preco.toFixed(2)} (unidade)</li>`;
+        }
+        else {
+            lista.innerHTML += `<li><span><strong>${item.quantidade}</strong>x </span>${item.nome} - R$ ${item.preco.toFixed(2)}</li>`;
+        }
+    
 });
     //removendo classe hidden para que a tela de confirmação apareca
     document.querySelector('.cart-confirm').classList.remove('hidden');
@@ -353,8 +359,29 @@ Pedido enviado pelo app da Cantina IDB.`;
 
 
 
+        //─────────────────────────────────────
+        //          DARK THEME
+        //─────────────────────────────────────
 
+        // Seleciona o botão de alternar tema (adicione a classe 'theme-toggle-btn' nele)
+const themeBtn = document.querySelector('.theme-toggle-btn');
 
+themeBtn.addEventListener('click', () => {
+    // Adiciona ou remove a classe do dark mode no body
+    document.body.classList.toggle('dark-theme');
+    
+    // Opcional: Salva a preferência do usuário no navegador
+    if (document.body.classList.contains('dark-theme')) {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// Verifica se o usuário já tinha escolhido o dark mode antes
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-theme');
+}
 
 
 

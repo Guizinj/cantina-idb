@@ -1,16 +1,47 @@
-/*/* Fonte */
+
+/* Fonte */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
 
-/* Paleta Temática */
+/* =============================================
+   SISTEMA DE CORES (LIGHT / DARK MODE)
+   ============================================= */
 :root {
-    --bg-dark: #121212;          /* Preto Principal */
-    --lion-gold: #d4af37;        /* Ouro de Destaque */
-    --lion-bronze: #b87333;      /* Bronze para Preços */
-    --bg-light: #fdfaf2;         /* Areia do Fundo */
-    --text-dark: #1c150c;        /* Marrom de Textos */
-    --text-muted: #a38a63;       /* Dourado Queimado */
-    --border-color: #e6dfd1;     /* Divisórias */
-    --danger-lion: #9e2a2b;      /* Vermelho de Alertas */
+    /* --- PALETA LIGHT MODE (Padrão) --- */
+    --bg-page: #2b2318;           /* Fundo fora do app (Seu original do body) */
+    --bg-app: #fdfaf2;            /* Areia do Fundo do App */
+    --bg-header: #121212;         /* Preto Principal do Cabeçalho */
+    --bg-card: #ffffff;           /* Fundo dos cards de produto e linhas do carrinho */
+    --bg-modal: #fdfaf2;          /* Fundo dos modais e do checkout */
+    
+    --text-main: #1c150c;         /* Marrom de Textos principais */
+    --text-muted: #a38a63;        /* Dourado Queimado */
+    --text-light: #ffffff;        /* Texto claro para elementos escuros */
+    
+    --border-color: #e6dfd1;      /* Divisórias */
+    --input-bg: #ffffff;          /* Fundo do campo de input */
+    --input-border: #ddd;         /* Borda do input */
+
+    /* --- CORES DE IDENTIDADE (Fixas para ambos os temas) --- */
+    --lion-gold: #d4af37;         /* Ouro de Destaque */
+    --lion-bronze: #b87333;       /* Bronze para Preços */
+    --danger-lion: #9e2a2b;       /* Vermelho de Alertas */
+    --accent-orange: #ff5c2b;     /* Laranja de destaque do Checkout */
+}
+
+/* --- PALETA DARK MODE (Ativada via JavaScript no body) --- */
+body.dark-theme {
+    --bg-page: #0a0806;           /* Fundo fora do app mais escuro */
+    --bg-app: #16120e;            /* Marrom quase preto para o fundo do app */
+    --bg-header: #0a0806;         /* Cabeçalho totalmente preto */
+    --bg-card: #221c15;           /* Cards marrom bem escuros */
+    --bg-modal: #1c1610;          /* Modais e overlays escuros */
+    
+    --text-main: #f5ebd6;         /* Texto creme claro para leitura no escuro */
+    --text-muted: #c2ab83;        /* Dourado adaptado para o fundo escuro */
+    
+    --border-color: #33291c;      /* Divisórias escuras */
+    --input-bg: #2a2219;          /* Fundo dos inputs escurecido */
+    --input-border: #443725;      /* Borda dos inputs sutil */
 }
 
 /* Reset Geral */
@@ -23,32 +54,35 @@
 
 /* Fundo da Página */
 body {
-    background-color: #2b2318; 
+    background-color: var(--bg-page); 
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 0px;
+    transition: background-color 0.3s ease; /* Transição suave de cor */
 }
 
 /* Tela do App */
 .app-container {
     width: 100vw;
     height: 100vh;
-    background-color: var(--bg-light);
+    background-color: var(--bg-app); 
     overflow: hidden;
     position: relative;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
+    transition: background-color 0.3s ease;
 }
 
 /* Cabeçalho Principal */
 .app-header {
-    background-color: var(--bg-dark);
+    background-color: var(--bg-header); 
     padding: 16px 20px 24px 20px;
     position: relative;
     border-bottom: 2px solid var(--lion-gold); 
+    transition: background-color 0.3s ease;
 }
 
 /* Alinhamento do Cabeçalho */
@@ -77,7 +111,7 @@ body {
 /* Efeito de Hover (Mouse por cima) */
 .icon-btn:hover {
     background: var(--lion-gold);
-    color: var(--bg-dark);
+    color: var(--bg-header);
 }
 
 /* Seletor de Localização */
@@ -88,7 +122,7 @@ body {
     border: 1px solid var(--text-muted);
     padding: 6px 16px;
     border-radius: 20px;
-    color: white;
+    color: var(--text-light);
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -102,7 +136,7 @@ body {
 
 /* Título de Boas-Vindas */
 .main-title {
-    color: white;
+    color: var(--text-light);
     font-size: 2rem;
     font-weight: 800;
     line-height: 1.1;
@@ -137,7 +171,7 @@ body {
 /* Categoria Selecionada */
 .category-item.active {
     background-color: var(--lion-gold);
-    color: var(--bg-dark);
+    color: var(--bg-header);
     padding: 6px 16px;
     border-radius: 15px;
 }
@@ -151,6 +185,7 @@ body {
     overflow-y: auto;
     background-color: var(--border-color);
     gap: 3px; 
+    transition: background-color 0.3s ease;
 }
 
 /* Esconde Scrollbar dos Produtos */
@@ -160,7 +195,7 @@ body {
 
 /* Cartão do Produto */
 .product-card {
-    background-color: var(--bg-light);
+    background-color: var(--bg-card); 
     padding: 16px;
     position: relative;
     display: flex;
@@ -168,6 +203,7 @@ body {
     justify-content: space-between; 
     height: auto;
     min-height: 200px;
+    transition: background-color 0.3s ease;
 }
 
 /* Esconde Produtos Filtrados */
@@ -178,7 +214,7 @@ body {
 /* Nome do Produto */
 .product-name {
     font-size: 0.8rem;
-    color: var(--text-dark);
+    color: var(--text-main); 
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 4px;
@@ -218,7 +254,7 @@ body {
     height: 40px;
     border-radius: 50%;
     border: 1px solid var(--lion-gold);
-    background: var(--bg-dark);
+    background: var(--bg-header);
     color: var(--lion-gold);
     display: flex;
     justify-content: center;
@@ -232,7 +268,7 @@ body {
 .add-btn:active {
     transform: scale(0.9);
     background: var(--lion-gold);
-    color: var(--bg-dark);
+    color: var(--bg-header);
 }
 
 /* Botão Flutuante do Carrinho */
@@ -242,7 +278,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     background-color: #121212f6;
-    color: white;
+    color: var(--text-light);
     border-radius: 50%;
     width: 85px;
     height: 85px;
@@ -267,7 +303,7 @@ body {
 .cart-total {
     font-size: 0.75rem;
     font-weight: 700;
-    color: white;
+    color: var(--text-light);
 }
 
 /* Fundo Escuro Atrás do Modal */
@@ -294,7 +330,7 @@ body {
 /* Corpo Branco do Carrinho (Sobe da Base) */
 .cart-modal-content {    
     height: 80%;
-    background-color: var(--bg-light);
+    background-color: var(--bg-modal); 
     width: 100%;
     border-radius: 30px 30px 0 0;
     border-top: 3px solid var(--lion-gold); 
@@ -303,9 +339,11 @@ body {
     flex-direction: column;
     box-shadow: 0 -10px 30px rgba(0,0,0,0.3);
     overflow: hidden;
+    transition: background-color 0.3s ease;
 }
+
 /* Cabecario do modal */
-.cart-modal-header{
+.cart-modal-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -338,19 +376,20 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: white;
+    background-color: var(--bg-card); 
     padding: 12px 14px;
     border-radius: 16px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); 
     width: 100%;
     box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Imagem e Texto do Item */
 .item-info {
     display: flex;
     align-items: center;
-    color: var(--text-dark);
+    color: var(--text-main); 
 }
 
 /* Quantidade do Item (ex: 2x) */
@@ -384,7 +423,7 @@ body {
 /* Botão Fechar Modal (X) */
 #fechar {
     align-self: flex-start;
-    background: var(--bg-dark);
+    background: var(--bg-header);
     color: var(--lion-gold);
     border: 1px solid var(--lion-gold);
     width: 32px;
@@ -435,19 +474,20 @@ body {
 
 /* Caixa Central do Alerta */
 .popup-box {
-    background: white;
+    background: var(--bg-card); /* Alterado para se adequar ao tema escuro */
     padding: 30px;
     border-radius: 24px;
     width: 85%;
     text-align: center;
     box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    transition: background-color 0.3s ease;
 }
 
 /* Texto da Pergunta do Alerta */
 .popup-box p {
     font-size: 0.95rem;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-main); 
     margin-bottom: 20px;
 }
 
@@ -470,7 +510,7 @@ body {
 /* Botão Cancelar do Alerta */
 .btn-cancel {
     background: var(--border-color);
-    color: var(--text-dark);
+    color: var(--text-main);
 }
 
 /* Botão Confirmar do Alerta */
@@ -493,13 +533,13 @@ body {
 .modal-footer span {
     font-size: 1rem;
     font-weight: 800;
-    color: var(--text-dark);
+    color: var(--text-main);
 }
 
 /* Botão Finalizar Pedido */
 #finalizar-btn {
     background: var(--lion-gold);
-    color: var(--bg-dark);
+    color: var(--bg-header);
     border: none;
     padding: 12px 24px;
     border-radius: 16px;
@@ -519,15 +559,14 @@ body {
 /* =============================================
    TELA DE CONFIRMAÇÃO DE PEDIDO (OVERLAY)
    ============================================= */
-
 .cart-confirm {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.85); /* Fundo branco levemente transparente */
-    backdrop-filter: blur(8px); /* Desfoque elegante no cardápio ao fundo */
+    background-color: var(--bg-modal); 
+    backdrop-filter: blur(8px); 
     -webkit-backdrop-filter: blur(8px);
     display: flex;
     flex-direction: column;
@@ -547,12 +586,13 @@ body {
 .order-number-box {
     text-align: center;
     padding: 20px;
-    background-color: #f8f9fa;
+    background-color: var(--bg-card); /* Ajustado para mudar com o tema */
     border-radius: 20px;
     margin-bottom: 28px;
-    border: 1px solid #eee;
+    border: 1px solid var(--border-color);
     width: 100%;
     box-sizing: border-box;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .order-number-box span {
@@ -565,7 +605,7 @@ body {
 #numero-pedido {
     font-size: 2rem;
     font-weight: 800;
-    color: var(--text-dark, #111);
+    color: var(--text-main);
     margin-top: 6px;
     margin-bottom: 0;
 }
@@ -582,7 +622,7 @@ body {
 .client-input-box label {
     font-size: 0.8rem;
     font-weight: 800;
-    color: var(--text-dark, #111);
+    color: var(--text-main);
     letter-spacing: 0.5px;
 }
 
@@ -590,37 +630,37 @@ body {
     width: 100%;
     padding: 16px;
     border-radius: 16px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--input-border); 
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--text-dark, #111);
-    background-color: white;
+    color: var(--text-main); 
+    background-color: var(--input-bg); 
     box-sizing: border-box;
-    transition: border-color 0.2s ease;
+    transition: all 0.2s ease;
     outline: none;
 }
 
 #nome-cliente:focus {
-    border-color: #ff5c2b; /* Borda laranja ao clicar */
+    border-color: var(--accent-orange); 
 }
 
 /* Área de Resumo dos Itens */
 .summary-box {
-    flex: 1; /* Faz o resumo ocupar o espaço disponível empurrando o footer para baixo */
+    flex: 1; 
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    overflow-y: auto; /* Permite rolar se a lista de itens for muito grande */
+    overflow-y: auto; 
     margin-bottom: 20px;
 }
 
 .summary-box h4 {
     font-size: 0.8rem;
     font-weight: 800;
-    color: var(--text-dark, #111);
+    color: var(--text-main);
     letter-spacing: 0.5px;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 8px;
     margin: 0;
 }
@@ -638,22 +678,22 @@ body {
     align-items: center;
     font-size: 0.9rem;
     font-weight: 700;
-    color: #444;
+    color: var(--text-main);
 }
 
 .resumo-item-linha .qtd-e-nome {
-    color: var(--text-dark, #111);
+    color: var(--text-main);
 }
 
 .resumo-item-linha .qtd-destaque {
-    color: #ff5c2b; /* Destaca o "2x" em laranja */
+    color: var(--accent-orange); 
     margin-right: 4px;
 }
 
 /* Rodapé e Botão de Confirmar */
 .checkout-footer {
     width: 100%;
-    margin-top: auto; /* Empurra firmemente para a base */
+    margin-top: auto; 
 }
 
 .checkout-footer .summary-total-row {
@@ -662,8 +702,8 @@ body {
     align-items: center;
     padding-top: 16px;
     margin-bottom: 20px;
-    border-top: 1px dotted #ccc;
-    color: var(--text-dark, #111);
+    border-top: 1px dotted var(--border-color);
+    color: var(--text-main);
     font-size: 0.95rem;
     font-weight: 700;
 }
@@ -676,7 +716,7 @@ body {
 
 #confirmar-pedido-btn {
     background-color: var(--lion-gold);
-    color: white;
+    color: var(--bg-header); /* Mantém legível de acordo com o fundo do botão */
     border: none;
     width: 100%;
     padding: 18px;
@@ -690,13 +730,14 @@ body {
 }
 
 #confirmar-pedido-btn:active {
-    transform: scale(0.98); /* Efeito de clique físico */
+    transform: scale(0.98); 
     background-color: #e04b1f;
 }
+
 #fecharr {
     align-self: flex-start;
     background-color: transparent;
-    color: rgb(0, 0, 0);
+    color: var(--text-main); /* Ajustado para não sumir no escuro */
     width: 32px;
     height: 32px;
     border: none;
@@ -711,18 +752,18 @@ body {
     flex-shrink: 0;
 }
 
- /* POOUP CONFIRMAÇÃO*/
- .popup-sucesso {
+/* POOUP CONFIRMAÇÃO*/
+.popup-sucesso {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.4); /* Fundo escuro bem leve */
+    background: rgba(0, 0, 0, 0.4); 
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100000; /* Por cima de absolutamente tudo */
+    z-index: 100000; 
 }
 
 /* Esconde o popup */
@@ -732,7 +773,7 @@ body {
 
 /* Card central */
 .popup-sucesso-content {
-    background-color: var(--bg-dark);
+    background-color: var(--bg-header); /* Usa o preto temático fixo */
     color: white;
     padding: 20px 32px;
     border-radius: 16px;
@@ -756,7 +797,7 @@ body {
 }
 
 .popup-btn-whats {
-    background-color: #25D366; /* Verde do WhatsApp */
+    background-color: #25D366; 
     color: white;
     border: none;
     padding: 10px 20px;
@@ -766,10 +807,10 @@ body {
     cursor: pointer;
     margin-top: 12px;
     transition: transform 0.2s, background-color 0.2s;
-    width: 100%; /* Ocupa a largura do card do popup */
+    width: 100%; 
 }
 
 .popup-btn-whats:active {
     transform: scale(0.98);
-    background-color: #20ba5a; /* Um verde levemente mais escuro ao clicar */
+    background-color: #20ba5a; 
 }
