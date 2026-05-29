@@ -43,6 +43,9 @@ body.dark-theme {
     --input-bg: #2a2219;          /* Fundo dos inputs escurecido */
     --input-border: #443725;      /* Borda dos inputs sutil */
 }
+#text{
+    color: white;
+}
 
 /* Reset Geral */
 * {
@@ -321,6 +324,10 @@ body {
     z-index: 100;
     transition: all 0.3s ease;
 }
+.cart-modal-title{
+    color: var(--text-light);
+
+}
 
 /* Esconde o Modal do Carrinho */
 .cart-modal.hidden {
@@ -533,7 +540,7 @@ body {
 .modal-footer span {
     font-size: 1rem;
     font-weight: 800;
-    color: var(--text-main);
+    color: black;
 }
 
 /* Botão Finalizar Pedido */
@@ -669,6 +676,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
+}
+#resumo-itens-lista > li{
+    color: var(--text-light);
 }
 
 /* Estilização para as linhas que o JS vai criar dentro do resumo */
@@ -813,4 +823,38 @@ body {
 .popup-btn-whats:active {
     transform: scale(0.98);
     background-color: #20ba5a; 
+}
+
+/* Container da Busca (Mantém o botão no lugar original) */
+.search-container {
+    display: flex;
+    align-items: center;
+    position: relative; /* Base para o input flutuar */
+}
+
+/* Estilo do Input de Busca (Agora flutuando de forma absoluta) */
+#search-input {
+    position: absolute;
+    left: 20px; /* Faz ele abrir para o lado direito da lupa */
+    width: 0px;
+    opacity: 0;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    height: 40px;
+    background-color: var(--input-bg);
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.85rem;
+    outline: none;
+    z-index: 5; /* Garante que fica acima de outros elementos se necessário */
+    transition: all 0.3s ease; 
+}
+
+/* Classe que o JS vai colocar para abrir a barra */
+#search-input.open {
+    width: 92vw; /* Largura da caixinha de texto ao abrir */
+    opacity: 1;
+    padding: 0 14px;
+    border-color: var(--lion-gold);
 }

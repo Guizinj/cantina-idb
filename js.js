@@ -383,8 +383,94 @@ if (localStorage.getItem('theme') === 'dark') {
     document.body.classList.add('dark-theme');
 }
 
+/*
+// BARRA DE  PESQUISA + FILTROS 
 
+// 1. Pegamos os elementos necessários
+const searchBtn = document.getElementById('search-btn');
+const searchInput = document.getElementById('search-input');
+const productCards = document.querySelectorAll('.product-card');
 
+// 2. Quando clicar no botão de lupa, abre ou fecha a barra de pesquisa
+searchBtn.addEventListener('click', () => {
+    searchInput.classList.toggle('open');
+    
+    // Se a barra abriu, joga o teclado/foco direto para dentro dela
+    if (searchInput.classList.contains('open')) {
+        searchInput.focus();
+    } else {
+        // Se fechou a barra, limpa o texto e mostra todos os produtos de volta
+        searchInput.value = '';
+        productCards.forEach(card => card.classList.remove('hidden'));
+    }
+});
+
+// 3. A lógica do filtro que conversamos (dispara a cada letra digitada)
+searchInput.addEventListener('input', () => {
+    const searchTerm = searchInput.value.toLowerCase();
+
+    productCards.forEach(card => {
+        const productName = card.querySelector('.product-name').textContent.toLowerCase();
+
+        // Se o nome do produto incluir o que foi digitado, mostra. Se não, esconde.
+        if (productName.includes(searchTerm)) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+});*/
+
+// =========================================================================
+// SISTEMA DE BUSCA (SEARCH) - APENAS O NECESSÁRIO
+// =========================================================================
+
+// 1. Pegamos a sua lupinha e o seu input direto pelo ID
+const searchBtn = document.getElementById('search-btn');
+const searchInput = document.getElementById('search-input');
+const productCards = document.querySelectorAll('.product-card');
+
+// 2. Abre/Fecha a barra ao clicar no botão da lupa
+searchBtn.addEventListener('click', (event) => {
+    event.stopPropagation(); // Evita fechar na mesma hora que clica
+    searchInput.classList.toggle('open');
+    
+    if (searchInput.classList.contains('open')) {
+        searchInput.focus();
+    } else {
+        searchInput.value = '';
+        productCards.forEach(card => card.classList.remove('hidden'));
+    }
+});
+
+// 3. Evita que clicar dentro da caixinha de texto feche ela
+searchInput.addEventListener('click', (event) => {
+    event.stopPropagation();
+});
+
+// 4. Se clicar em qualquer lugar fora, fecha o input
+document.addEventListener('click', () => {
+    if (searchInput.classList.contains('open')) {
+        searchInput.classList.remove('open');
+        searchInput.value = '';
+        productCards.forEach(card => card.classList.remove('hidden'));
+    }
+});
+
+// 5. Filtra os seus produtos na tela enquanto você digita
+searchInput.addEventListener('input', () => {
+    const termoBusca = searchInput.value.toLowerCase();
+
+    productCards.forEach(card => {
+        const nomeProduto = card.querySelector('.product-name').textContent.toLowerCase();
+
+        if (nomeProduto.includes(termoBusca)) {
+            card.classList.remove('hidden'); // Mostra se tiver o texto
+        } else {
+            card.classList.add('hidden');    // Esconde se não tiver
+        }
+    });
+});
 
 
 
