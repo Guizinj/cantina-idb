@@ -42,9 +42,7 @@ body.dark-theme {
     --border-color: #33291c;      /* Divisórias escuras */
     --input-bg: #2a2219;          /* Fundo dos inputs escurecido */
     --input-border: #443725;      /* Borda dos inputs sutil */
-}
-#text{
-    color: white;
+    --textofinal: #ffffff;
 }
 
 /* Reset Geral */
@@ -540,7 +538,7 @@ body {
 .modal-footer span {
     font-size: 1rem;
     font-weight: 800;
-    color: black;
+    color: rgb(0, 0, 0);
 }
 
 /* Botão Finalizar Pedido */
@@ -678,7 +676,7 @@ body {
     gap: 12px;
 }
 #resumo-itens-lista > li{
-    color: var(--text-light);
+    color: var(--textofinal);
 }
 
 /* Estilização para as linhas que o JS vai criar dentro do resumo */
