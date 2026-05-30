@@ -205,13 +205,13 @@ Pedido enviado pelo app da Cantina IDB.`;
 
     // Abre o modal PIX e trava o scroll de tudo atrás
     document.getElementById('pix-modal').classList.remove('hidden');
-    document.querySelector('.summary-box').style.overflow = 'hidden';
+    document.querySelector('.cart-confirm').style.overflow = 'hidden';
 });
 
 // Fecha o modal PIX com o botão voltar e destrava o scroll
 document.getElementById('fechar-pix').addEventListener('click', () => {
     document.getElementById('pix-modal').classList.add('hidden');
-    document.querySelector('.summary-box').style.overflow = '';
+    document.querySelector('.cart-confirm').style.overflow = '';
 });
 
 // Botão "Copiar chave"
@@ -242,7 +242,7 @@ document.getElementById('pix-liberar-btn').addEventListener('click', () => {
 
     // Fecha tudo, destrava scroll e limpa o estado
     document.getElementById('pix-modal').classList.add('hidden');
-    document.querySelector('.summary-box').style.overflow = '';
+    document.querySelector('.cart-confirm').style.overflow = '';
     document.querySelector('.cart-confirm').classList.add('hidden');
     carrinho = [];
     telaTotal.textContent = '';
