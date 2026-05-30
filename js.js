@@ -155,6 +155,153 @@ document.getElementById('fecharr').addEventListener('click', () => {
 });
 
 
+
+
+
+
+
+// ═══════════════════════════════════════════════════════
+// BLOCO 6 — FLUXO DE PAGAMENTO PIX
+// Clique em "PAGAR AGORA" → abre modal PIX
+// Checkbox marcado após 30s → libera botão do WhatsApp
+// ═══════════════════════════════════════════════════════
+
+let whatsappUrl = ''; // Guardada aqui, só aberta após confirmar pagamento
+let cronometro; // Guardará o intervalo do contador
+
+document.getElementById('confirmar-pedido-btn').addEventListener('click', () => {
+    const nomeCliente = document.getElementById('nome-cliente').value;
+
+    if (!nomeCliente.trim() || nomeCliente.length === 1) {
+        return alert('Por favor, digite seu nome antes de confirmar o pedido!');
+    }
+
+    const numeroPedido = document.getElementById('numero-pedido').textContent;
+    const total = carrinho.reduce((acc, i) => acc + i.preco * i.quantidade, 0);
+
+    // Monta a mensagem do WhatsApp antecipadamente
+    let textoItens = '';
+    carrinho.forEach(item => {
+        textoItens += `\n${item.quantidade}x ${item.nome} — R$ ${(item.preco * item.quantidade).toFixed(2)}`;
+    });
+
+    const mensagem =
+`CANTINA IDB — PEDIDO #${numeroPedido}
+------------------------------
+Cliente: ${nomeCliente}
+
+ITENS:
+${textoItens}
+------------------------------
+TOTAL: R$ ${total.toFixed(2)}
+------------------------------
+Pedido recebido pelo site.`;
+
+    whatsappUrl = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`;
+
+    // Preenche o modal PIX com os dados certos
+    document.getElementById('pix-valor-display').textContent = `R$ ${total.toFixed(2)}`;
+    document.getElementById('pix-chave').textContent = MINHA_CHAVE_PIX;
+
+    // ─────────────────────────────────────────────────────────
+    // SISTEMA DE VALIDAÇÃO DE TEMPO (30 SEGUNDOS)
+    // ─────────────────────────────────────────────────────────
+    const check = document.getElementById('pix-confirmado-check');
+    const btnLiberar = document.getElementById('pix-liberar-btn');
+    const labelCheck = check.parentElement; // Pega o elemento pai (geralmente o <label>)
+
+    // Reseta o estado dos elementos
+    check.checked = false;
+    check.disabled = true;       // Trava o checkbox de início
+    btnLiberar.disabled = true;
+
+    // Limpa qualquer cronômetro ativo anteriormente (evita bugs se fechar/abrir rápido)
+    clearInterval(cronometro);
+
+    let tempoRestante = 30; // Tempo em segundos
+    
+    // Altera o texto inicial do label para orientar o usuário
+    labelCheck.style.opacity = '0.6'; // Deixa meio apagadinho enquanto bloqueado
+
+    cronometro = setInterval(() => {
+        tempoRestante--;
+        
+        // Atualiza o texto do contador se houver uma tag de texto interna
+        if (tempoRestante <= 0) {
+            clearInterval(cronometro);
+            check.disabled = false;     // Libera o checkbox
+            labelCheck.style.opacity = '1'; // Volta à cor normal
+            
+        }
+    }, 1000);
+    // ─────────────────────────────────────────────────────────
+
+    // Abre o modal PIX e trava o scroll do body
+    document.getElementById('pix-modal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+});
+
+// Fecha o modal PIX com o botão voltar, destrava o scroll e para o cronômetro
+document.getElementById('fechar-pix').addEventListener('click', () => {
+    clearInterval(cronometro); // Para o contador se o usuário desistir/fechar
+    document.getElementById('pix-modal').classList.add('hidden');
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.width = '';
+});
+
+// Botão "Copiar chave"
+document.getElementById('pix-copiar-btn').addEventListener('click', () => {
+    const chave = document.getElementById('pix-chave').textContent;
+    navigator.clipboard.writeText(chave).then(() => {
+        const btn  = document.getElementById('pix-copiar-btn');
+        const txt  = document.getElementById('pix-copiar-texto');
+        btn.classList.add('copiado');
+        txt.textContent = 'Copiado!';
+        setTimeout(() => {
+            btn.classList.remove('copiado');
+            txt.textContent = 'Copiar chave';
+        }, 2500);
+    });
+});
+
+// Checkbox "Já realizei o pagamento" → libera o botão
+document.getElementById('pix-confirmado-check').addEventListener('change', (e) => {
+    document.getElementById('pix-liberar-btn').disabled = !e.target.checked;
+});
+
+// Botão "Enviar pedido no WhatsApp" (só ativo após checkbox)
+document.getElementById('pix-liberar-btn').addEventListener('click', () => {
+    if (document.getElementById('pix-liberar-btn').disabled) return;
+
+    window.open(whatsappUrl, '_blank');
+
+    // Fecha tudo, destrava scroll e limpa o estado
+    document.getElementById('pix-modal').classList.add('hidden');
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.width = '';
+    document.querySelector('.cart-confirm').classList.add('hidden');
+    carrinho = [];
+    telaTotal.textContent = '';
+
+    // Mostra o popup de confirmação final
+    const popup = document.getElementById('popup-sucesso');
+    popup.classList.remove('hidden');
+    setTimeout(() => popup.classList.add('hidden'), 5000);
+});
+
+
+
+
+
+
+
+
+
+/*
 // ═══════════════════════════════════════════════════════
 // BLOCO 6 — FLUXO DE PAGAMENTO PIX
 // Clique em "PAGAR AGORA" → abre modal PIX
@@ -257,7 +404,7 @@ document.getElementById('pix-liberar-btn').addEventListener('click', () => {
     const popup = document.getElementById('popup-sucesso');
     popup.classList.remove('hidden');
     setTimeout(() => popup.classList.add('hidden'), 5000);
-});
+});*/
 
 
 // ─────────────────────────────────────────────
