@@ -9,7 +9,7 @@
     /* --- PALETA LIGHT MODE (Padrão) --- */
     --bg-page: #2b2318;           /* Fundo fora do app (Seu original do body) */
     --bg-app: #fdfaf2;            /* Areia do Fundo do App */
-    --bg-header: #121212;         /* Preto Principal do Cabeçalho */
+    --bg-header: #0f2652;         /* Preto Principal do Cabeçalho */
     --bg-card: #ffffff;           /* Fundo dos cards de produto e linhas do carrinho */
     --bg-modal: #fdfaf2;          /* Fundo dos modais e do checkout */
     
@@ -22,7 +22,7 @@
     --input-border: #ddd;         /* Borda do input */
 
     /* --- CORES DE IDENTIDADE (Fixas para ambos os temas) --- */
-    --lion-gold: #d4af37;         /* Ouro de Destaque */
+    --lion-gold: #b6962e;         /* Ouro de Destaque */
     --lion-bronze: #b87333;       /* Bronze para Preços */
     --danger-lion: #9e2a2b;       /* Vermelho de Alertas */
     --accent-orange: #ff5c2b;     /* Laranja de destaque do Checkout */
@@ -30,18 +30,18 @@
 
 /* --- PALETA DARK MODE (Ativada via JavaScript no body) --- */
 body.dark-theme {
-    --bg-page: #0a0806;           /* Fundo fora do app mais escuro */
-    --bg-app: #16120e;            /* Marrom quase preto para o fundo do app */
-    --bg-header: #0a0806;         /* Cabeçalho totalmente preto */
-    --bg-card: #221c15;           /* Cards marrom bem escuros */
-    --bg-modal: #1c1610;          /* Modais e overlays escuros */
+    --bg-page: #060d1a;
+    --bg-app: #0a1628;
+    --bg-header: #060d1a;
+    --bg-card: #0f2040;
+    --bg-modal: #0d1b35;
     
-    --text-main: #f5ebd6;         /* Texto creme claro para leitura no escuro */
-    --text-muted: #c2ab83;        /* Dourado adaptado para o fundo escuro */
+    --text-main: #dce8f5;
+    --text-muted: #7aaac8;
     
-    --border-color: #33291c;      /* Divisórias escuras */
-    --input-bg: #2a2219;          /* Fundo dos inputs escurecido */
-    --input-border: #443725;      /* Borda dos inputs sutil */
+    --border-color: #1a2e4a;
+    --input-bg: #0c1d38;
+    --input-border: #1e3558;
     --textofinal: #ffffff;
 }
 
