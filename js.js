@@ -53,6 +53,25 @@ document.querySelectorAll('.add-btn').forEach(botao => {
 
         const total = carrinho.reduce((acc, i) => acc + i.preco * i.quantidade, 0);
         telaTotal.textContent = `R$ ${total.toFixed(2)}`;
+
+
+        // ==========================================
+        // Animação focada apenas no ícone
+        // ==========================================
+        
+        // Seleciona especificamente o ícone dentro do carrinho
+        const iconeCarrinho = document.querySelector('.cart-floating-btn .material-symbols-outlined');
+        
+        if (iconeCarrinho) {
+            iconeCarrinho.classList.add('animar-carrinho');
+            
+            iconeCarrinho.addEventListener('animationend', () => {
+                iconeCarrinho.classList.remove('animar-carrinho');
+            }, { once: true });
+        }
+        
+        // ==========================================
+
     });
 });
 
