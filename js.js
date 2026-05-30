@@ -203,17 +203,19 @@ Pedido enviado pelo app da Cantina IDB.`;
     check.checked = false;
     btnLiberar.disabled = true;
 
-    // Abre o modal PIX e trava o touch da tela atrás
+    // Abre o modal PIX e trava o scroll do body
     document.getElementById('pix-modal').classList.remove('hidden');
-    document.querySelector('.cart-confirm').style.touchAction = 'none';
-    document.querySelector('.cart-confirm').style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
 });
 
 // Fecha o modal PIX com o botão voltar e destrava o scroll
 document.getElementById('fechar-pix').addEventListener('click', () => {
     document.getElementById('pix-modal').classList.add('hidden');
-    document.querySelector('.cart-confirm').style.touchAction = '';
-    document.querySelector('.cart-confirm').style.overflow = '';
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.width = '';
 });
 
 // Botão "Copiar chave"
@@ -244,8 +246,9 @@ document.getElementById('pix-liberar-btn').addEventListener('click', () => {
 
     // Fecha tudo, destrava scroll e limpa o estado
     document.getElementById('pix-modal').classList.add('hidden');
-    document.querySelector('.cart-confirm').style.touchAction = '';
-    document.querySelector('.cart-confirm').style.overflow = '';
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.width = '';
     document.querySelector('.cart-confirm').classList.add('hidden');
     carrinho = [];
     telaTotal.textContent = '';
