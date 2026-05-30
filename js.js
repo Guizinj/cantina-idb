@@ -236,7 +236,7 @@ TOTAL: R$ ${total.toFixed(2)}
     // Limpa qualquer cronômetro ativo anteriormente (evita bugs se fechar/abrir rápido)
     clearInterval(cronometro);
 
-    let tempoRestante = 12; // Tempo em segundos
+    let tempoRestante = 10; // Tempo em segundos
     
     // Altera o texto inicial do label para orientar o usuário
     labelCheck.style.opacity = '0.5'; // Deixa meio apagadinho enquanto bloqueado
