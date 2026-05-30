@@ -162,7 +162,7 @@ document.getElementById('fecharr').addEventListener('click', () => {
 
 // ═══════════════════════════════════════════════════════
 // BLOCO 6 — FLUXO DE PAGAMENTO PIX
-// Clique em "PAGAR AGORA" → abre modal PIX
+// Clique em "CONTINUAR PARA PAGAMENTO" → abre modal PIX
 // Checkbox marcado após 30s → libera botão do WhatsApp
 // ═══════════════════════════════════════════════════════
 
@@ -241,6 +241,25 @@ Pedido recebido pelo site.`;
     document.body.style.overflow = 'hidden';
     document.body.style.position = 'fixed';
     document.body.style.width = '100%';
+
+
+    
+    const content_pix = document.querySelector('.pix-body');
+    // ATENÇÃO: Removemos o travamento rígido do body aqui para PERMITIR o scroll em celulares
+    document.body.style.overflow = 'auto'; 
+
+    // ─────────────────────────────────────────────────────────
+    // NOVO: ROLAR ATÉ O FINAL DO MODAL PARA MOSTRAR A CAIXINHA
+    // ─────────────────────────────────────────────────────────
+    // Usamos um leve timeout de 50ms apenas para dar tempo do navegador renderizar a remoção do 'hidden'
+    setTimeout(() => {
+        content_pix.scrollTo({
+            top: content_pix.scrollHeight,
+            behavior: 'smooth' // Faz a rolagem ser macia e visível
+        });
+    }, 3000);
+
+
 });
 
 // Fecha o modal PIX com o botão voltar, destrava o scroll e para o cronômetro
