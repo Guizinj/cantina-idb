@@ -203,14 +203,16 @@ Pedido enviado pelo app da Cantina IDB.`;
     check.checked = false;
     btnLiberar.disabled = true;
 
-    // Abre o modal PIX e trava o scroll de tudo atrás
+    // Abre o modal PIX e trava o touch da tela atrás
     document.getElementById('pix-modal').classList.remove('hidden');
+    document.querySelector('.cart-confirm').style.touchAction = 'none';
     document.querySelector('.cart-confirm').style.overflow = 'hidden';
 });
 
 // Fecha o modal PIX com o botão voltar e destrava o scroll
 document.getElementById('fechar-pix').addEventListener('click', () => {
     document.getElementById('pix-modal').classList.add('hidden');
+    document.querySelector('.cart-confirm').style.touchAction = '';
     document.querySelector('.cart-confirm').style.overflow = '';
 });
 
@@ -242,6 +244,7 @@ document.getElementById('pix-liberar-btn').addEventListener('click', () => {
 
     // Fecha tudo, destrava scroll e limpa o estado
     document.getElementById('pix-modal').classList.add('hidden');
+    document.querySelector('.cart-confirm').style.touchAction = '';
     document.querySelector('.cart-confirm').style.overflow = '';
     document.querySelector('.cart-confirm').classList.add('hidden');
     carrinho = [];
