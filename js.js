@@ -83,7 +83,7 @@ function renderizarCarrinho() {
                          style="width:40px;height:40px;object-fit:contain;margin-right:10px;border-radius:5px">
                     <span><strong>${item.quantidade}x</strong> ${item.nome} — R$${(item.preco * item.quantidade).toFixed(2)}</span>
                 </div>
-                <button class="remove-item-btn" data-index="${i}">x</button>
+                <button class="remove-item-btn" data-index="${i}">-</button>
             </div>`).join('');
     }
 
@@ -194,8 +194,7 @@ ITENS:
 ${textoItens}
 ------------------------------
 TOTAL: R$ ${total.toFixed(2)}
-------------------------------
-Pedido recebido pelo site.`;
+------------------------------`;
 
     whatsappUrl = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`;
 

@@ -405,9 +405,9 @@ body {
 
 /* Botão de Remover Item (-) */
 .remove-item-btn {
-    background: #fff0f0;
-    border: 1px solid rgba(158, 42, 43, 0.2);
-    color: var(--danger-lion);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--textofinal);
     width: 28px;
     height: 28px;
     border-radius: 50%;
