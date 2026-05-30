@@ -839,27 +839,6 @@ body {
     border-color: var(--lion-gold);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* =============================================
-   COLE ESTE BLOCO NO FINAL DO SEU stylechat.css
-   ============================================= */
-
 /* Fundo escuro do modal PIX */
 .pix-modal {
     position: fixed;
@@ -1139,4 +1118,48 @@ body {
 }
 .pix-liberar-btn:not([disabled]):active {
     transform: scale(0.98);
+}
+
+
+
+/* =============================================
+   ETIQUETA DE POUCAS UNIDADES (LOW STOCK BADGE)
+   ============================================= */
+.badge-low-stock {
+    position: absolute;
+    top: 65px;
+    left: 15px;
+    background-color: rgba(158, 42, 43, 0.12); /* Seu --danger-lion sutil com transparência */
+    color: #ff6b6b; /* Um tom vermelho/coral bem vivo para destacar no Light e Dark Mode */
+    border: 1px solid rgba(158, 42, 43, 0.4);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.55rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    animation: pulsarSuave 2s infinite alternate; /* Efeito discreto de atenção */
+}
+
+/* Pequeno ajuste para o Dark Mode para o texto harmonizar com o fundo escuro */
+body.dark-theme .badge-low-stock {
+    background-color: rgba(158, 42, 43, 0.25);
+    color: #ff8e8e;
+    border-color: rgba(212, 175, 55, 0.3); /* Usa um toque do seu --lion-gold na borda */
+}
+
+/* Animação para dar um charme premium ao aviso sem poluir a tela */
+@keyframes pulsarSuave {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
 }
