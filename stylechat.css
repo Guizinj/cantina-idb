@@ -856,3 +856,281 @@ body {
     padding: 0 14px;
     border-color: var(--lion-gold);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =============================================
+   COLE ESTE BLOCO NO FINAL DO SEU stylechat.css
+   ============================================= */
+
+/* Fundo escuro do modal PIX */
+.pix-modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 200000;
+}
+.pix-modal.hidden { display: none !important; }
+
+/* Card que sobe da base */
+.pix-modal-content {
+    background-color: var(--bg-modal);
+    width: 100%;
+    border-radius: 28px 28px 0 0;
+    border-top: 3px solid var(--lion-gold);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 -12px 40px rgba(0,0,0,0.4);
+    overflow: hidden;
+    max-height: 92vh;
+}
+
+/* Cabeçalho */
+.pix-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.pix-close-btn {
+    background: var(--bg-header);
+    border: 1px solid var(--lion-gold);
+    color: var(--lion-gold);
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: transform 0.1s;
+    flex-shrink: 0;
+}
+.pix-close-btn:active { transform: scale(0.9); }
+
+.pix-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: 0.5px;
+}
+
+/* Corpo */
+.pix-body {
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Box do valor */
+.pix-valor-box {
+    background: var(--bg-header);
+    border: 1px solid var(--lion-gold);
+    border-radius: 18px;
+    padding: 18px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.pix-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.pix-valor {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--lion-gold);
+    letter-spacing: -0.5px;
+}
+
+/* Instrução */
+.pix-instrucao {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.pix-icon {
+    color: #4daa7f;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+/* Box da chave */
+.pix-chave-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.pix-chave-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.pix-chave-valor {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text-main);
+    word-break: break-all;
+}
+
+.pix-copiar-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--lion-gold);
+    color: var(--bg-header);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    cursor: pointer;
+    width: 100%;
+    justify-content: center;
+    margin-top: 4px;
+    transition: transform 0.1s, background 0.2s;
+}
+.pix-copiar-btn:active { transform: scale(0.97); }
+.pix-copiar-btn.copiado { background: #4daa7f; }
+
+/* Aviso */
+.pix-aviso {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 14px;
+    padding: 12px 14px;
+}
+
+.pix-aviso .material-symbols-outlined {
+    color: var(--lion-gold);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.pix-aviso p {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* Rodapé com checkbox e botão */
+.pix-footer {
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+/* Checkbox customizado */
+.pix-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.pix-checkbox-label input[type="checkbox"] {
+    display: none; /* Esconde o checkbox nativo */
+}
+
+.pix-checkbox-custom {
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    border: 2px solid var(--text-muted);
+    background: var(--input-bg);
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+}
+
+/* Quando o checkbox estiver marcado */
+.pix-checkbox-label input:checked + .pix-checkbox-custom {
+    background: #4daa7f;
+    border-color: #4daa7f;
+}
+
+.pix-checkbox-label input:checked + .pix-checkbox-custom::after {
+    content: '✓';
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 900;
+}
+
+/* Botão de liberar (desabilitado por padrão) */
+.pix-liberar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 800;
+    cursor: not-allowed;
+    transition: all 0.2s;
+    background: var(--border-color);
+    color: var(--text-muted);
+}
+
+/* Quando o checkbox libera o botão */
+.pix-liberar-btn:not([disabled]) {
+    background: #25D366;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+.pix-liberar-btn:not([disabled]):active {
+    transform: scale(0.98);
+}

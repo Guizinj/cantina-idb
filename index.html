@@ -147,7 +147,64 @@
             </div>
         
     </div>
+    <!-- ═══════════════════════════════════════════════
+     COLE ESTE BLOCO logo antes de </div> FIM DO APP CONTAINER-->
+     ═══════════════════════════════════════════════ 
 
+<div id="pix-modal" class="pix-modal hidden">
+    <div class="pix-modal-content">
+
+        <div class="pix-header">
+            <button id="fechar-pix" class="pix-close-btn">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <h2 class="pix-title">Pagar com PIX</h2>
+        </div>
+
+        <div class="pix-body">
+
+            <div class="pix-valor-box">
+                <span class="pix-label">VALOR A PAGAR</span>
+                <strong class="pix-valor" id="pix-valor-display">R$ 0,00</strong>
+            </div>
+
+            <div class="pix-instrucao">
+                <span class="material-symbols-outlined pix-icon">pix</span>
+                <p>Copie a chave abaixo e faça o PIX no seu banco</p>
+            </div>
+
+            <div class="pix-chave-box">
+                <span class="pix-chave-label">CHAVE PIX</span>
+                <!-- ⚠️ TROQUE pelo seu CPF, CNPJ, telefone ou chave aleatória -->
+                <span class="pix-chave-valor" id="pix-chave">81993369736</span>
+                <button class="pix-copiar-btn" id="pix-copiar-btn">
+                    <span class="material-symbols-outlined">content_copy</span>
+                    <span id="pix-copiar-texto">Copiar chave</span>
+                </button>
+            </div>
+
+            <div class="pix-aviso">
+                <span class="material-symbols-outlined">info</span>
+                <p>Após pagar, marque a opção abaixo para liberar o envio do pedido.</p>
+            </div>
+
+        </div>
+
+        <div class="pix-footer">
+            <label class="pix-checkbox-label" id="pix-checkbox-label">
+                <input type="checkbox" id="pix-confirmado-check">
+                <span class="pix-checkbox-custom"></span>
+                <span>Já realizei o pagamento</span>
+            </label>
+
+            <button id="pix-liberar-btn" class="pix-liberar-btn" disabled>
+                Enviar pedido no WhatsApp
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+        </div>
+
+    </div>
+</div>
     </div> <!--FIM DO APP CONTAINER-->
 
 
