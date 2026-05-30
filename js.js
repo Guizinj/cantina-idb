@@ -218,7 +218,7 @@ Pedido recebido pelo site.`;
     // Limpa qualquer cronômetro ativo anteriormente (evita bugs se fechar/abrir rápido)
     clearInterval(cronometro);
 
-    let tempoRestante = 30; // Tempo em segundos
+    let tempoRestante = 15; // Tempo em segundos
     
     // Altera o texto inicial do label para orientar o usuário
     labelCheck.style.opacity = '0.6'; // Deixa meio apagadinho enquanto bloqueado
@@ -243,7 +243,7 @@ Pedido recebido pelo site.`;
     document.body.style.width = '100%';
 
 
-    
+
     const content_pix = document.querySelector('.pix-body');
     // ATENÇÃO: Removemos o travamento rígido do body aqui para PERMITIR o scroll em celulares
     document.body.style.overflow = 'auto'; 
