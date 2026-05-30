@@ -218,10 +218,10 @@ Pedido recebido pelo site.`;
     // Limpa qualquer cronômetro ativo anteriormente (evita bugs se fechar/abrir rápido)
     clearInterval(cronometro);
 
-    let tempoRestante = 15; // Tempo em segundos
+    let tempoRestante = 20; // Tempo em segundos
     
     // Altera o texto inicial do label para orientar o usuário
-    labelCheck.style.opacity = '0.6'; // Deixa meio apagadinho enquanto bloqueado
+    labelCheck.style.opacity = '0.5'; // Deixa meio apagadinho enquanto bloqueado
 
     cronometro = setInterval(() => {
         tempoRestante--;
