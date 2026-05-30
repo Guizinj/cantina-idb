@@ -974,12 +974,37 @@ body {
 /* Instrução */
 .pix-instrucao {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 10px;
-    color: var(--text-main);
-    font-size: 0.9rem;
-    font-weight: 600;
 }
+
+.pix-passo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pix-passo span {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--lion-gold);
+    color: var(--bg-header);
+    font-size: 0.7rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pix-passo p {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin: 0;
+}
+
 
 .pix-icon {
     color: #4daa7f;
