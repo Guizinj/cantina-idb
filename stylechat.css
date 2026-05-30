@@ -804,24 +804,6 @@ body {
     letter-spacing: 0.5px;
 }
 
-.popup-btn-whats {
-    background-color: #25D366; 
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 12px;
-    transition: transform 0.2s, background-color 0.2s;
-    width: 100%; 
-}
-
-.popup-btn-whats:active {
-    transform: scale(0.98);
-    background-color: #20ba5a; 
-}
 
 /* Container da Busca (Mantém o botão no lugar original) */
 .search-container {

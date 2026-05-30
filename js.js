@@ -189,7 +189,7 @@ ${textoItens}
 ------------------------------
 TOTAL: R$ ${total.toFixed(2)}
 ------------------------------
-Pedido enviado pelo app da Cantina IDB.`;
+Pedido recebido pelo site.`;
 
     whatsappUrl = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`;
 
@@ -256,7 +256,7 @@ document.getElementById('pix-liberar-btn').addEventListener('click', () => {
     // Mostra o popup de confirmação final
     const popup = document.getElementById('popup-sucesso');
     popup.classList.remove('hidden');
-    setTimeout(() => popup.classList.add('hidden'), 3500);
+    setTimeout(() => popup.classList.add('hidden'), 5000);
 });
 
 
