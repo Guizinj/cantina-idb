@@ -724,7 +724,7 @@ body {
 
 #confirmar-pedido-btn {
     background-color: var(--lion-gold);
-    color: var(--bg-header); /* Mantém legível de acordo com o fundo do botão */
+    color: black; /* Mantém legível de acordo com o fundo do botão */
     border: none;
     width: 100%;
     padding: 18px;
