@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────
 // ⚠️ TROQUE PELA SUA CHAVE PIX
 // ─────────────────────────────────────────────
-const MINHA_CHAVE_PIX = '81993369736'; // CPF, CNPJ, telefone ou chave aleatória
+const MINHA_CHAVE_PIX = '12428552465'; // CPF, CNPJ, telefone ou chave aleatória
 
 // Número do WhatsApp (só números com DDI)
 const WHATSAPP_NUMERO = '5581993369736';
