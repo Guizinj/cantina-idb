@@ -1128,13 +1128,13 @@ body {
 .badge-low-stock {
     position: absolute;
     top: 65px;
-    left: 15px;
+    left: 10px;
     background-color: rgba(158, 42, 43, 0.12); /* Seu --danger-lion sutil com transparência */
     color: #ff6b6b; /* Um tom vermelho/coral bem vivo para destacar no Light e Dark Mode */
     border: 1px solid rgba(158, 42, 43, 0.4);
     padding: 4px 10px;
     border-radius: 12px;
-    font-size: 0.55rem;
+    font-size: 0.40rem;
     font-weight: 800;
     letter-spacing: 0.5px;
     text-transform: uppercase;
