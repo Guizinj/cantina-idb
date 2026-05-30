@@ -1139,7 +1139,7 @@ body {
     letter-spacing: 0.5px;
     text-transform: uppercase;
     z-index: 2;
-    display: inline-flex;
+    display: none;
     align-items: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     animation: pulsarSuave 2s infinite alternate; /* Efeito discreto de atenção */
