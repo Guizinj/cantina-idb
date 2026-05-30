@@ -874,7 +874,6 @@ body {
 
 
 
-
 /* =============================================
    COLE ESTE BLOCO NO FINAL DO SEU stylechat.css
    ============================================= */
@@ -890,6 +889,7 @@ body {
     align-items: flex-end;
     justify-content: center;
     z-index: 200000;
+    overflow: hidden;
 }
 .pix-modal.hidden { display: none !important; }
 
@@ -897,13 +897,13 @@ body {
 .pix-modal-content {
     background-color: var(--bg-modal);
     width: 100%;
+    height: 92vh;
     border-radius: 28px 28px 0 0;
     border-top: 3px solid var(--lion-gold);
     display: flex;
     flex-direction: column;
     box-shadow: 0 -12px 40px rgba(0,0,0,0.4);
     overflow: hidden;
-    max-height: 92vh;
 }
 
 /* Cabeçalho */
