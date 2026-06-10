@@ -441,7 +441,7 @@ hr{
 }
 
 /* Botão de Remover Item (-) */
-.remove-item-btn {
+.remove-item-btn, .add-item-btn {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
     color: var(--textofinal);
@@ -454,6 +454,7 @@ hr{
     justify-content: center;
     align-items: center;
     transition: all 0.2s;
+    margin: 0px 8px;
 }
 
 /* Clique no Botão de Remover (-) */

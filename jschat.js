@@ -186,9 +186,11 @@ function renderizarCarrinho() {
                 <div class="item-info">
                     <img src="${item.imagem}" alt="${item.nome}"
                          style="width:60px;height:60px;object-fit:contain;margin-right:10px;border-radius:5px">
-                    <span style="text-transform:uppercase; font-size: 0.85rem;"><strong>${item.quantidade}x</strong> ${item.nome} — R$${(item.preco * item.quantidade).toFixed(2)}</span>
+                    <span style="text-transform:uppercase; font-size: 0.85rem;">${item.nome}  R$${(item.preco * item.quantidade).toFixed(2)}</span>
                 </div>
                 <button class="remove-item-btn" data-index="${i}">-</button>
+                <span style="color: var(--lion-gold)"><strong>${item.quantidade}</strong></span>
+                 <button class="add-item-btn" data-index="${i}">+</button>
                 <!--  ↑ data-index guarda a posição do item no array, para saber qual remover -->
             </div>`).join('');
     }
@@ -217,6 +219,30 @@ function renderizarCarrinho() {
             renderizarCarrinho();      // Re-desenha a lista para refletir a mudança
         });
     });
+
+
+
+     // Adiciona o evento de clique em cada botão "-" (remover item)
+    document.querySelectorAll('.add-item-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Lê o índice do item a partir do atributo data-index
+            const idx = parseInt(btn.getAttribute('data-index'));
+
+            if (carrinho[idx].quantidade >= 1) {
+                // Se tem mais de 1 unidade, só diminui a quantidade
+                carrinho[idx].quantidade++;
+            }
+
+            salvarCarrinho();          // Salva o carrinho atualizado
+            atualizarTotalFlutuante(); // Atualiza o total no botão flutuante
+            renderizarCarrinho();      // Re-desenha a lista para refletir a mudança
+        });
+    });
+
+
+
+
+
 }
 
 
