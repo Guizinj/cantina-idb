@@ -1,6 +1,3 @@
-console.log(document.body.scrollHeight);
-console.log(window.innerHeight);
-
 // ═══════════════════════════════════════════════════════════════════════════════
 // ARQUIVO: jschat.js
 // PROJETO: Cantina IDB
@@ -107,6 +104,40 @@ function atualizarTotalFlutuante() {
 // Chama a função logo quando a página carrega, para exibir o total salvo
 atualizarTotalFlutuante();
 
+
+        function mostrarPopup() {
+        const container = document.getElementById('toastContainer');
+
+        // Cria o elemento do popup
+        const toast = document.createElement('div');
+        toast.classList.add('toast');
+
+        // Estrutura interna (Ícone + Texto)
+        toast.innerHTML = `
+        <span class="toast-icon">✓</span>
+        <span class="toast-message">Item adicionado com sucesso!</span>
+        `;
+
+        // Coloca o popup dentro do container
+        container.appendChild(toast);
+
+        // Pequeno delay para a animação do CSS funcionar
+        setTimeout(() => {
+        toast.classList.add('show');
+        }, 10);
+
+        // Remove o popup após 3 segundos (3000ms)
+        setTimeout(() => {
+        toast.classList.remove('show');
+
+        // Espera a animação de saída terminar para deletar o elemento do HTML
+        setTimeout(() => {
+        toast.remove();
+        }, 400);
+        }, 1000);
+        }
+
+
 // Para cada botão "+" de adicionar produto nos cards
 document.querySelectorAll('.add-btn').forEach(botao => {
     botao.addEventListener('click', () => {
@@ -135,6 +166,7 @@ document.querySelectorAll('.add-btn').forEach(botao => {
             carrinho.push({ nome, preco, imagem: img, quantidade: 1 });
         }
 
+        mostrarPopup();
         salvarCarrinho();         // Salva o carrinho atualizado no localStorage
         atualizarTotalFlutuante(); // Atualiza o valor visível no botão flutuante
 

@@ -1322,3 +1322,56 @@ body.dark-theme .badge-low-stock {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- ESTILOS DO POPUP (TOAST) --- */
+        .toast-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .toast {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            color: #333;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            margin-top: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            border-left: 5px solid #2ecc71; /* Barrinha verde de sucesso */
+        }
+
+        /* Classe que ativa a animação de entrada */
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .toast-icon {
+            margin-right: 12px;
+            font-size: 20px;
+            color: #2ecc71;
+        }
+
+        .toast-message {
+            font-size: 14px;
+            font-weight: 500;
+        }

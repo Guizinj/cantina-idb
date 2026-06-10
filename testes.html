@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup de Item Adicionado</title>
+    <style>
+        /* Estilos do botão principal */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f7f6;
+            margin: 0;
+        }
+
+        .btn-add {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s ease;
+        }
+
+        .btn-add:hover {
+            background-color: #27ae60;
+        }
+
+        /* --- ESTILOS DO POPUP (TOAST) --- */
+        .toast-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .toast {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            color: #333;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            margin-top: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            border-left: 5px solid #2ecc71; /* Barrinha verde de sucesso */
+        }
+
+        /* Classe que ativa a animação de entrada */
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .toast-icon {
+            margin-right: 12px;
+            font-size: 20px;
+            color: #2ecc71;
+        }
+
+        .toast-message {
+            font-size: 14px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="btn-add" onclick="mostrarPopup()">Adicionar ao Carrinho</button>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        function mostrarPopup() {
+            const container = document.getElementById('toastContainer');
+
+            // Cria o elemento do popup
+            const toast = document.createElement('div');
+            toast.classList.add('toast');
+
+            // Estrutura interna (Ícone + Texto)
+            toast.innerHTML = `
+                <span class="toast-icon">✓</span>
+                <span class="toast-message">Item adicionado com sucesso!</span>
+            `;
+
+            // Coloca o popup dentro do container
+            container.appendChild(toast);
+
+            // Pequeno delay para a animação do CSS funcionar
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+
+            // Remove o popup após 3 segundos (3000ms)
+            setTimeout(() => {
+                toast.classList.remove('show');
+                
+                // Espera a animação de saída terminar para deletar o elemento do HTML
+                setTimeout(() => {
+                    toast.remove();
+                }, 400);
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>
