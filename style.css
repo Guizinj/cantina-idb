@@ -355,7 +355,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end; 
-    z-index: 1000; /* Aumentado para garantir que fique por cima de tudo */
+    z-index: 100; /* Aumentado para garantir que fique por cima de tudo */
     transition: all 0.3s ease;
 }
 .cart-modal-title{
