@@ -273,7 +273,8 @@ document.getElementById('finalizar-btn').addEventListener('click', () => {
     lista.innerHTML = ''; // Limpa antes de adicionar
     carrinho.forEach(item => {
         // Para cada item, cria um <li> com as informações
-        lista.innerHTML += `<li><strong>${item.quantidade}x</strong> ${item.nome} — R$ ${item.preco.toFixed(2)}${item.quantidade > 1 ? ' (unidade)' : ''}</li>`;
+        lista.innerHTML += `<li><strong>${item.quantidade}x </strong> 
+        ${item.nome} — R$ ${item.preco.toFixed(2)}${item.quantidade > 1 ? ' (unidade)' : ''}</li>`;
         //                                                                                    ↑ Operador ternário: se quantidade > 1, mostra "(unidade)", senão, nada
     });
 
