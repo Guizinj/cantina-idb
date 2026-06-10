@@ -82,15 +82,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100dvh; /* Mudado de 100vh para 100dvh */
     padding: 0px;
-    transition: background-color 0.3s ease; /* Transição suave de cor */
+    overflow: hidden; /* Garante que a página em si nunca role */
+    transition: background-color 0.3s ease; 
 }
 
 /* Tela do App */
 .app-container {
     width: 100vw;
-    height: 100vh;
+    height: 100dvh; /* Mudado de 100vh para 100dvh */
     overflow: hidden;
     background-color: var(--bg-app); 
     position: relative;
@@ -344,17 +345,17 @@ body {
 
 /* Fundo Escuro Atrás do Modal */
 .cart-modal {
-    position: absolute;
+    position: fixed; /* Mudado de absolute para fixed */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw; /* Garante que pegue a largura total */
+    height: 100dvh; /* Garante que use a altura dinâmica correta */
     background-color: rgba(0, 0, 0, 0.7); 
     backdrop-filter: blur(5px); 
     display: flex;
     justify-content: center;
     align-items: flex-end; 
-    z-index: 100;
+    z-index: 1000; /* Aumentado para garantir que fique por cima de tudo */
     transition: all 0.3s ease;
 }
 .cart-modal-title{
