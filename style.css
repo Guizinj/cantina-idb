@@ -1,3 +1,26 @@
+/*
+=====================================================
+ARQUIVO REVISADO PARA ESTUDO
+=====================================================
+
+O que foi alterado:
+1. top-bar: margin-bottom 30px -> 24px
+2. main-title: margin-bottom 35px -> 24px
+3. product-image-container: margin-top 10px -> 16px
+
+Nenhuma outra regra visual foi alterada.
+
+Objetivo:
+- Padronizar espaçamentos.
+- Facilitar manutenção.
+- Servir como material de estudo.
+
+Observação:
+O CSS original já possuía muitos comentários. Mantive a estrutura
+e acrescentei esta documentação inicial para não modificar o layout.
+=====================================================
+*/
+
 
 /* Fonte */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
@@ -91,7 +114,7 @@ body {
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 24px; /* Padronizado para escala 8/16/24/32 */
 }
 
 /* Botões do Topo (Perfil/Busca) */
@@ -142,7 +165,7 @@ body {
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: 1px;
-    margin-bottom: 35px;
+    margin-bottom: 24px; /* Padronizado para escala 8/16/24/32 */
 }
 
 /* Navegação por Categorias */
@@ -233,7 +256,7 @@ body {
     display: flex;
     justify-content: end;
     align-items: end;
-    margin-top: 10px;
+    margin-top: 16px; /* Alinhado ao padding interno do card */
     height: 100px;
     width: 100%;
     overflow: hidden;
@@ -1163,13 +1186,6 @@ body.dark-theme .badge-low-stock {
         opacity: 1;
     }
 }
-
-
-
-
-
-
-
 
 
 /* ===================================================

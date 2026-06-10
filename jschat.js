@@ -186,7 +186,7 @@ function renderizarCarrinho() {
                 <div class="item-info">
                     <img src="${item.imagem}" alt="${item.nome}"
                          style="width:40px;height:40px;object-fit:contain;margin-right:10px;border-radius:5px">
-                    <span><strong>${item.quantidade}x</strong> ${item.nome} — R$${(item.preco * item.quantidade).toFixed(2)}</span>
+                    <span style="text-transform:uppercase; font-size: 0.85rem;"><strong>${item.quantidade}x</strong> ${item.nome} — R$${(item.preco * item.quantidade).toFixed(2)}</span>
                 </div>
                 <button class="remove-item-btn" data-index="${i}">-</button>
                 <!--  ↑ data-index guarda a posição do item no array, para saber qual remover -->
