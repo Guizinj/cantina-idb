@@ -306,12 +306,14 @@ let cronometro;       // Variável global que vai guardar o ID do setInterval (p
 // Clique em "CONTINUAR PARA PAGAMENTO" na tela de resumo
 document.getElementById('confirmar-pedido-btn').addEventListener('click', () => {
     // Pega o nome que o usuário digitou no campo de texto
+    const inputCliente = document.getElementById('nome-cliente');
     const nomeCliente = document.getElementById('nome-cliente').value;
 
     // Validação: o nome não pode estar vazio ou ter só 1 caractere
     if (!nomeCliente.trim() || nomeCliente.length === 1) {
         // .trim() remove espaços do início e fim (evita que " " passe na validação)
-        return alert('Por favor, digite seu nome antes de confirmar o pedido!');
+        inputCliente.focus();
+        return
         // 'return' aqui interrompe a função — o código abaixo não executa
     }
 
