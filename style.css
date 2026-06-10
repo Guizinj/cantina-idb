@@ -613,7 +613,7 @@ hr{
     -webkit-backdrop-filter: blur(8px);
     display: flex;
     flex-direction: column;
-    padding: 10px 35px 60px 35px;
+    padding: 30px 30px;
     box-sizing: border-box;
     z-index: 10000;
     transition: all 0.3s ease;
