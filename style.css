@@ -107,7 +107,6 @@ body {
     z-index: 10;
     background-color: var(--bg-header); 
     padding: 16px 20px 24px 20px;
-    position: relative;
     border-bottom: 2px solid var(--lion-gold); 
     transition: background-color 0.3s ease;
 }
