@@ -188,12 +188,16 @@ function renderizarCarrinho() {
                 <div class="item-info">
                     <img src="${item.imagem}" alt="${item.nome}"
                          style="width:60px;height:60px;object-fit:contain;margin-right:10px;border-radius:5px">
-                    <span style="text-transform:uppercase; font-size: 0.85rem;">${item.nome}  R$${(item.preco * item.quantidade).toFixed(2)}</span>
+                    <span>${item.nome}
+                    <br>
+                    <strong>R$${(item.preco * item.quantidade).toFixed(2)}</span></strong>
                 </div>
-                <button class="remove-item-btn" data-index="${i}">-</button>
-                <span style="color: var(--lion-gold)"><strong>${item.quantidade}</strong></span>
-                 <button class="add-item-btn" data-index="${i}">+</button>
-                <!--  ↑ data-index guarda a posição do item no array, para saber qual remover -->
+                <div class="buton-add-cart">
+                    <button class="remove-item-btn" data-index="${i}">-</button>
+                    <span style="color: var(--lion-gold)"><strong>${item.quantidade}</strong></span>
+                     <button class="add-item-btn" data-index="${i}">+</button>
+                    <!--  ↑ data-index guarda a posição do item no array, para saber qual remover -->
+                </div>
             </div>`).join('');
     }
 

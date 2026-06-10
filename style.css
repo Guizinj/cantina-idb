@@ -436,11 +436,19 @@ hr{
     align-items: center;
     color: var(--text-main); 
 }
-
-/* Quantidade do Item (ex: 2x) */
-.item-info strong {
-    color: var(--lion-bronze); 
-    margin-right: 4px;
+.item-info strong{
+    color: var(--lion-gold);
+}
+.item-info span{
+    text-transform:uppercase; 
+    font-size: 0.85rem;
+    line-height: 22px;
+}
+.buton-add-cart{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
 }
 
 /* Botão de Remover Item (-) */
@@ -458,12 +466,6 @@ hr{
     align-items: center;
     transition: all 0.2s;
     margin: 0px 8px;
-}
-
-/* Clique no Botão de Remover (-) */
-.remove-item-btn:active {
-    background: var(--danger-lion);
-    color: white;
 }
 
 /* Botão Fechar Modal (X) */
