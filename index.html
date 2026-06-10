@@ -1,44 +1,103 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Cantina IDB</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="stylec.css">
-    <link rel="shortcut icon" href="favi.jpg" type="image/x-icon">
-</head>
-<body>
+<!-- DOCTYPE diz ao navegador que esse arquivo é HTML5 (versão moderna do HTML) -->
 
+<html lang="pt-BR">
+<!-- lang="pt-BR" → informa que o idioma da página é português do Brasil
+     (ajuda leitores de tela e o Google a entender o conteúdo) -->
+
+<head>
+    <!-- O <head> é invisível para o usuário. Aqui ficam as configurações da página. -->
+
+    <meta charset="UTF-8">
+    <!-- Garante que caracteres especiais como ã, ç, é apareçam certo -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- Faz a página se adaptar ao tamanho da tela do celular.
+         user-scalable=no → impede o usuário de dar zoom na tela -->
+
+    <title>Cantina IDB</title>
+    <!-- Texto que aparece na aba do navegador -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- Carrega os ícones do Google (Material Symbols).
+         São usados assim no HTML: <span class="material-symbols-outlined">search</span> -->
+
+    <link rel="stylesheet" href="stylec.css">
+    <!-- Importa o arquivo de estilos (CSS) local chamado stylec.css -->
+
+    <link rel="shortcut icon" href="favi.jpg" type="image/x-icon">
+    <!-- Define o favicon: o ícone pequeno que aparece na aba do navegador -->
+</head>
+
+<body>
+    <!-- Tudo que o usuário vê fica dentro do <body> -->
+
+    <!-- ══════════════════════════════════════════════════════════
+         CONTÊINER PRINCIPAL
+         Envolve TODO o app. O CSS usa ele para centralizar na tela.
+         ══════════════════════════════════════════════════════════ -->
     <div class="app-container">
-        
+
+        <!-- ── CABEÇALHO ─────────────────────────────────────────── -->
         <header class="app-header">
+
+            <!-- Barra do topo com botões e localização -->
             <div class="top-bar">
+
+                <!-- Campo de texto da busca. Começa escondido (sem a classe "open").
+                     O JavaScript vai adicionar/remover a classe "open" para abrir/fechar. -->
                 <input type="text" id="search-input" placeholder="O que vai pedir hoje?" class="hidden-search">
-                <button class="icon-btn" id="search-btn"><span class="material-symbols-outlined">search</span></button>
+
+                <!-- Botão da lupa. O JS escuta o clique nele. -->
+                <button class="icon-btn" id="search-btn">
+                    <span class="material-symbols-outlined">search</span>
+                    <!-- "search" é o nome do ícone da lupa no Material Symbols -->
+                </button>
+
+                <!-- Exibe a localização da cantina -->
                 <div class="location-picker">
                     <span class="material-symbols-outlined pin">location_on</span>
+                    <!-- Ícone de pino de localização -->
                     <span class="location-text">IDB CARUARU</span>
                     <span class="material-symbols-outlined arrow">expand_more</span>
+                    <!-- Ícone de seta pra baixo -->
                 </div>
-                <button class="icon-btn"><span class="material-symbols-outlined theme-toggle-btn">contrast</span></button>
+
+                <!-- Botão para alternar entre tema claro e escuro.
+                     O JavaScript usa a classe "theme-toggle-btn" para identificar esse botão. -->
+                <button class="icon-btn">
+                    <span class="material-symbols-outlined theme-toggle-btn">contrast</span>
+                </button>
             </div>
 
+            <!-- Título principal da página -->
             <h1 class="main-title">
                 ESSE É O NOSSO<br>CARDÁPIO<br>DE HOJE!
+                <!-- <br> = quebra de linha forçada -->
             </h1>
 
+            <!-- Menu de navegação por categorias.
+                 data-filter="valor" → atributo personalizado que o JS lê para saber qual filtro aplicar -->
             <nav class="categories-nav">
                 <a href="#" class="category-item active" data-filter="todos">PARA VOCÊ</a>
+                <!-- class="active" → começa selecionado (todos os produtos visíveis) -->
                 <a href="#" class="category-item" data-filter="salgados">SALGADOS</a>
                 <a href="#" class="category-item" data-filter="doces">DOCES</a>
                 <a href="#" class="category-item" data-filter="bebidas">BEBIDAS</a>
-
             </nav>
         </header>
+        <!-- ── FIM DO CABEÇALHO ───────────────────────────────────── -->
 
+
+        <!-- ══════════════════════════════════════════════════════════
+             GRADE DE PRODUTOS
+             Aqui ficam todos os cards de produto.
+             O CSS os organiza em 2 colunas com grid.
+             ══════════════════════════════════════════════════════════ -->
         <main class="products-grid">
-            
+
+            <!-- ── CARD DE PRODUTO ────────────────────────────────────
+                 data-category="salgados" → o JS usa para filtrar por categoria -->
             <div class="product-card" data-category="salgados">
                 <div class="product-info-box">
                     <h2 class="product-name">COXINHA DE FRANGO</h2>
@@ -46,14 +105,21 @@
                 </div>
                 <div class="product-image-container">
                     <img src="fotos/c.webp" alt="Coxinha de Frango" class="product-image">
+                    <!-- alt="..." → texto alternativo se a imagem não carregar (boa prática de acessibilidade) -->
                 </div>
                 <span style="display: none;">esgotado</span>
-                <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
+                <!-- Tag oculta — pode ser usada futuramente para indicar esgotado via JS -->
+                <button class="add-btn">
+                    <span class="material-symbols-outlined">add</span>
+                    <!-- Ícone "+" para adicionar ao carrinho -->
+                </button>
             </div>
 
+            <!-- ── CARD COM BADGE DE POUCAS UNIDADES ─────────────────── -->
             <div class="product-card" data-category="salgados">
                 <span class="badge-low-stock">Poucas unidades!</span>
-
+                <!-- Badge de aviso — a classe badge-low-stock tem display:none no CSS.
+                     Ela só aparece se você mudar para display:flex via JS ou CSS. -->
 
                 <div class="product-info-box">
                     <h2 class="product-name">TORTA DE FRANGO</h2>
@@ -63,7 +129,9 @@
                     <img src="fotos/f.webp" alt="Torta de Frango" class="product-image">
                 </div>
                 <span style="display: none;">esgotado</span>
-                <button style="display:;" class="add-btn"><span class="material-symbols-outlined">add</span></button>
+                <button class="add-btn">
+                    <span class="material-symbols-outlined">add</span>
+                </button>
             </div>
 
             <div class="product-card" data-category="salgados">
@@ -75,12 +143,13 @@
                     <img src="fotos/p.webp" alt="Pastel ao forno" class="product-image">
                 </div>
                 <span style="display: none;">esgotado</span>
-                <button style="display:;" class="add-btn"><span class="material-symbols-outlined">add</span></button>
+                <button class="add-btn">
+                    <span class="material-symbols-outlined">add</span>
+                </button>
             </div>
 
             <div class="product-card" data-category="doces">
                 <span class="badge-low-stock">Poucas unidades!</span>
-
                 <div class="product-info-box">
                     <h2 class="product-name">BROWNIE</h2>
                     <span class="product-price">R$5.00</span>
@@ -89,10 +158,15 @@
                     <img src="fotos/br.webp" alt="Brownie" class="product-image">
                 </div>
                 <span style="display: none;">esgotado</span>
-                <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
+                <button class="add-btn">
+                    <span class="material-symbols-outlined">add</span>
+                </button>
             </div>
 
-            <!--<div class="product-card" data-category="doces"> 
+            <!-- ── PRODUTO COMENTADO (desativado temporariamente) ──────
+                 O <!-- → → abre o comentário e o  → → fecha.
+                 Tudo dentro não é exibido nem executado pelo navegador. -->
+            <!--<div class="product-card" data-category="doces">
                 <div class="product-info-box">
                     <h2 class="product-name">FATIA TORTA DE CHOCOLATE</h2>
                     <span class="product-price">R$8.00</span>
@@ -103,7 +177,7 @@
                 <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
             </div>-->
 
-            <div class="product-card" data-category="bebidas"> 
+            <div class="product-card" data-category="bebidas">
                 <div class="product-info-box">
                     <h2 class="product-name">COCA COLA 200ML</h2>
                     <span class="product-price">R$3.00</span>
@@ -112,55 +186,80 @@
                     <img src="fotos/coca.webp" alt="COCA COLA" class="product-image">
                 </div>
                 <span style="display: none;">esgotado</span>
-                <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
+                <button class="add-btn">
+                    <span class="material-symbols-outlined">add</span>
+                </button>
             </div>
 
-            <div class="product-card" data-category="bebidas"> 
+            <div class="product-card" data-category="bebidas">
                 <div class="product-info-box">
                     <h2 class="product-name">GUARANÁ 200ML</h2>
                     <span class="product-price">R$3.00</span>
                 </div>
                 <div class="product-image-container">
-                    <img src="fotos/gua.webp" alt="COCA COLA" class="product-image">
+                    <img src="fotos/gua.webp" alt="GUARANÁ" class="product-image">
                 </div>
                 <span style="display: none;">esgotado</span>
-                <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
+                <button class="add-btn">
+                    <span class="material-symbols-outlined">add</span>
+                </button>
             </div>
 
-            <div class="product-card" data-category="bebidas"> 
+            <div class="product-card" data-category="bebidas">
                 <div class="product-info-box">
                     <h2 class="product-name">FANTA 200ML</h2>
                     <span class="product-price">R$3.00</span>
                 </div>
                 <div class="product-image-container">
-                    <img src="fotos/fan.webp" alt="COCA COLA" class="product-image">
+                    <img src="fotos/fan.webp" alt="FANTA" class="product-image">
                 </div>
                 <span style="display: none;">esgotado</span>
-                <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
+                <button class="add-btn">
+                    <span class="material-symbols-outlined">add</span>
+                </button>
             </div>
 
         </main>
+        <!-- ── FIM DA GRADE DE PRODUTOS ─────────────────────────────── -->
 
+
+        <!-- ══════════════════════════════════════════════════════════
+             BOTÃO FLUTUANTE DO CARRINHO
+             Fica fixo sobre a tela (position: absolute no CSS).
+             O JS escuta o clique nele para abrir o modal do carrinho.
+             ══════════════════════════════════════════════════════════ -->
         <div class="cart-floating-btn">
             <span class="material-symbols-outlined">shopping_cart</span>
+            <!-- Ícone do carrinho -->
             <span class="cart-total"></span>
+            <!-- Texto do total — começa vazio. O JS preenche quando há itens. -->
         </div>
 
+
+        <!-- ══════════════════════════════════════════════════════════
+             MODAL DO CARRINHO
+             Janela que sobe da base da tela com os itens adicionados.
+             Começa escondida com a classe "hidden".
+             ══════════════════════════════════════════════════════════ -->
         <div class="cart-modal hidden">
             <div class="cart-modal-content">
 
+                <!-- Botão de fechar o modal (X) -->
                 <button id="fechar">X</button>
 
                 <header class="cart-modal-header">
                     <h2 class="cart-modal-title">Meu Carrinho</h2>
+                    <!-- Botão para abrir o popup de confirmação de limpar -->
                     <button id="limpar-tudo-btn" class="clear-cart-btn">Limpar Carrinho</button>
                 </header>
 
+                <!-- Área onde o JS vai inserir dinamicamente os itens do carrinho -->
                 <div id="lista-itens"></div>
 
                 <div class="modal-footer">
                     <div>
                         <span>Total</span>
+                        <!-- O JS atualiza o texto aqui com o total calculado -->
                         <strong id="modal-total" class="total-val">R$ 0.00</strong>
                     </div>
                     <button id="finalizar-btn">Finalizar Pedido</button>
@@ -168,6 +267,12 @@
             </div>
         </div>
 
+
+        <!-- ══════════════════════════════════════════════════════════
+             POPUP DE CONFIRMAÇÃO DE LIMPAR CARRINHO
+             Aparece sobre o modal do carrinho quando o usuário
+             clica em "Limpar Carrinho".
+             ══════════════════════════════════════════════════════════ -->
         <div id="confirm-popup" class="popup-overlay hidden">
             <div class="popup-box">
                 <p>Tem certeza que deseja esvaziar o seu carrinho?</p>
@@ -178,134 +283,182 @@
             </div>
         </div>
 
+
+        <!-- ══════════════════════════════════════════════════════════
+             TELA DE CONFIRMAÇÃO/RESUMO DO PEDIDO
+             Aparece depois de clicar em "Finalizar Pedido".
+             Mostra o número do pedido, campo de nome e lista de itens.
+             ══════════════════════════════════════════════════════════ -->
         <div class="cart-confirm hidden">
-        <!--TELA DE CONFIRMAÇÃO DE PEDIDO-->
-        <button class="material-symbols-outlined" id="fecharr">arrow_back</button>
+
+            <!-- Botão de voltar (seta) -->
+            <button class="material-symbols-outlined" id="fecharr">arrow_back</button>
+
+            <!-- Caixa com o número do pedido gerado aleatoriamente pelo JS -->
             <div class="order-number-box">
                 <span>NÚMERO DO PEDIDO</span>
                 <h3 id="numero-pedido"></h3>
+                <!-- O JS preenche aqui com o número gerado -->
             </div>
+
+            <!-- Campo para o usuário digitar o nome -->
             <div class="client-input-box">
                 <label for="nome-cliente">SEU NOME</label>
+                <!-- for="nome-cliente" → associa o label ao input com id="nome-cliente"
+                     (clicar no label foca no input — boa prática de usabilidade) -->
                 <input type="text" id="nome-cliente" placeholder="Digite seu nome..." required>
+                <!-- required → campo obrigatório (o JS também valida isso manualmente) -->
             </div>
+
+            <!-- Caixa de resumo dos itens -->
             <div class="summary-box">
                 <h4>RESUMO DOS ITENS</h4>
-        
-                <div id="resumo-itens-lista">
-                    </div>
+                <!-- O JS vai inserir os <li> dos itens aqui -->
+                <div id="resumo-itens-lista"></div>
             </div>
+
             <div class="checkout-footer">
                 <div class="summary-total-row">
                     <span>TOTAL A PAGAR</span>
+                    <!-- O JS preenche aqui com o total calculado -->
                     <strong id="checkout-total">R$ 0.00</strong>
                 </div>
-        
                 <button id="confirmar-pedido-btn">CONTINUAR PARA PAGAMENTO</button>
             </div>
-        
-    </div>
 
-    </div> <!--FIM DO APP CONTAINER-->
-
-
-    <div id="pix-modal" class="pix-modal hidden">
-    <div class="pix-modal-content">
-
-        <div class="pix-header">
-            <button id="fechar-pix" class="pix-close-btn">
-                <span class="material-symbols-outlined">arrow_back</span>
-            </button>
-            <h2 class="pix-title">Pagar com PIX</h2>
         </div>
 
-        <div class="pix-body">
+    </div>
+    <!-- ── FIM DO APP CONTAINER ──────────────────────────────────────── -->
 
-            <div class="pix-valor-box">
-                <span class="pix-label">VALOR A PAGAR</span>
-                <strong class="pix-valor" id="pix-valor-display">R$ 0,00</strong>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+         MODAL DO PIX
+         Aparece quando o usuário confirma o pedido.
+         Exibe a chave PIX, instruções e o botão de enviar no WhatsApp.
+         Fica fora do app-container para cobrir a tela inteira (position: fixed).
+         ══════════════════════════════════════════════════════════════════ -->
+    <div id="pix-modal" class="pix-modal hidden">
+        <div class="pix-modal-content">
+
+            <!-- Cabeçalho do modal PIX -->
+            <div class="pix-header">
+                <button id="fechar-pix" class="pix-close-btn">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h2 class="pix-title">Pagar com PIX</h2>
             </div>
 
-            <div class="pix-instrucao">
-                <div class="pix-passo"><span>1</span><p>Copie a chave abaixo</p></div>
-                <div class="pix-passo"><span>2</span><p>Abra o app do seu banco e faça o PIX</p></div>
-                <div class="pix-passo"><span>3</span><p>Volte aqui e confirme o pagamento</p></div>
-            </div>
+            <!-- Corpo do modal PIX (tem scroll próprio) -->
+            <div class="pix-body">
 
-            <div class="pix-chave-box">
-                <span class="pix-chave-label">CHAVE PIX</span>
-                <span class="pix-chave-valor" id="pix-chave"></span>
-                <button class="pix-copiar-btn" id="pix-copiar-btn">
-                    <span class="material-symbols-outlined">content_copy</span>
-                    <span id="pix-copiar-texto">Copiar chave</span>
+                <!-- Exibe o valor a pagar em destaque -->
+                <div class="pix-valor-box">
+                    <span class="pix-label">VALOR A PAGAR</span>
+                    <!-- O JS preenche aqui com o total do pedido -->
+                    <strong class="pix-valor" id="pix-valor-display">R$ 0,00</strong>
+                </div>
+
+                <!-- Passo a passo de como pagar -->
+                <div class="pix-instrucao">
+                    <div class="pix-passo">
+                        <span>1</span><p>Copie a chave abaixo</p>
+                    </div>
+                    <div class="pix-passo">
+                        <span>2</span><p>Abra o app do seu banco e faça o PIX</p>
+                    </div>
+                    <div class="pix-passo">
+                        <span>3</span><p>Volte aqui e confirme o pagamento</p>
+                    </div>
+                </div>
+
+                <!-- Caixa com a chave PIX e o botão de copiar -->
+                <div class="pix-chave-box">
+                    <span class="pix-chave-label">CHAVE PIX</span>
+                    <!-- O JS preenche aqui com a chave definida no topo do jschat.js -->
+                    <span class="pix-chave-valor" id="pix-chave"></span>
+                    <button class="pix-copiar-btn" id="pix-copiar-btn">
+                        <span class="material-symbols-outlined">content_copy</span>
+                        <span id="pix-copiar-texto">Copiar chave</span>
+                    </button>
+                </div>
+
+                <!-- Aviso explicando o que fazer depois de pagar -->
+                <div class="pix-aviso">
+                    <span class="material-symbols-outlined">info</span>
+                    <p>Após efetuar o pagamento, marque a opção abaixo para liberar o envio do pedido.</p>
+                </div>
+
+            </div>
+            <!-- ── FIM DO PIX-BODY ──── -->
+
+            <!-- Rodapé com checkbox e botão de enviar no WhatsApp -->
+            <div class="pix-footer">
+
+                <!-- Checkbox customizado (o visual é feito 100% com CSS) -->
+                <label class="pix-checkbox-label" id="pix-checkbox-label">
+                    <input type="checkbox" id="pix-confirmado-check">
+                    <!-- O input real fica invisível. O CSS cria um quadradinho visual no lugar. -->
+                    <span class="pix-checkbox-custom"></span>
+                    <!-- Esse span É o quadradinho visual do checkbox -->
+                    <span>Já realizei o pagamento</span>
+                </label>
+
+                <!-- Botão de enviar — começa desabilitado (disabled).
+                     O JS habilita quando o checkbox é marcado. -->
+                <button id="pix-liberar-btn" class="pix-liberar-btn" disabled>
+                    Enviar pedido no WhatsApp
+                    <span class="material-symbols-outlined">arrow_forward</span>
                 </button>
             </div>
 
-            <div class="pix-aviso">
-                <span class="material-symbols-outlined">info</span>
-                <p>Após efetuar o pagamento, marque a opção abaixo para liberar o envio do pedido.</p>
-            </div>
-
         </div>
-
-        <div class="pix-footer">
-            <label class="pix-checkbox-label" id="pix-checkbox-label">
-                <input type="checkbox" id="pix-confirmado-check">
-                <span class="pix-checkbox-custom"></span>
-                <span>Já realizei o pagamento</span>
-            </label>
-
-            <button id="pix-liberar-btn" class="pix-liberar-btn" disabled>
-                Enviar pedido no WhatsApp
-                <span class="material-symbols-outlined">arrow_forward</span>
-            </button>
-        </div>
-
     </div>
-</div>
+    <!-- ── FIM DO MODAL PIX ──────────────────────────────────────────── -->
 
-           <!--POPUP CONFIRMAÇÃO-->
+
+    <!-- ══════════════════════════════════════════════════════════════════
+         POPUP DE SUCESSO
+         Aparece no centro da tela após o pedido ser enviado.
+         Some automaticamente após 5 segundos (o JS controla isso com setTimeout).
+         ══════════════════════════════════════════════════════════════════ -->
     <div id="popup-sucesso" class="popup-sucesso hidden">
         <div class="popup-sucesso-content">
             <span class="material-symbols-outlined">check_circle</span>
+            <!-- Ícone de check verde -->
             <p>Estamos separando seu pedido!</p>
-        </div>  
+        </div>
     </div>
 
 
-
-
-
-
-
-
-
-
-
-
+    <!-- ══════════════════════════════════════════════════════════════════
+         MODAL DE AVISO DA CANTINA
+         Cobre a tela inteira quando a cantina está fechada.
+         Não tem botão de fechar — é intencional para bloquear o uso.
+         O display está como "none" no CSS — mude para "flex" para exibir.
+         ══════════════════════════════════════════════════════════════════ -->
     <div id="modal-aviso-cantina" class="modal-aviso-wrapper">
-    <div class="modal-aviso-card">
-        <span class="material-symbols-outlined aviso-icone">schedule</span>
-        <h2>AVISO IMPORTANTE</h2>
-        <div class="linha-divisoria"></div>
-        <p class="aviso-texto-principal">A Cantina IDB funciona apenas <strong>uma vez por mês</strong>.</p>
-        <p class="aviso-texto-secundario">No momento estamos fechados, mas estamos nos preparando para o próximo encontro! Fique atento às nossas redes ou comunicados para saber a próxima data.</p>
-        
+        <div class="modal-aviso-card">
+            <span class="material-symbols-outlined aviso-icone">schedule</span>
+            <!-- Ícone de relógio -->
+            <h2>AVISO IMPORTANTE</h2>
+            <div class="linha-divisoria"></div>
+            <!-- Linha decorativa dourada -->
+            <p class="aviso-texto-principal">
+                A Cantina IDB funciona apenas <strong>uma vez por mês</strong>.
+            </p>
+            <p class="aviso-texto-secundario">
+                No momento estamos fechados, mas estamos nos preparando para o próximo encontro!
+                Fique atento às nossas redes ou comunicados para saber a próxima data.
+            </p>
+        </div>
     </div>
-</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
+    <!-- O arquivo JS fica sempre no FIM do body.
+         Motivo: o navegador carrega o HTML de cima para baixo.
+         Se o JS viesse antes, ele tentaria pegar elementos que ainda não existem. -->
     <script src="jschat.js"></script>
+
 </body>
 </html>
