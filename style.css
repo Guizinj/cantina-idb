@@ -104,7 +104,7 @@ body {
 .app-header {
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 10;
     background-color: var(--bg-header); 
     padding: 16px 20px 24px 20px;
     position: relative;
