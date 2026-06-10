@@ -130,6 +130,7 @@ body {
     color: var(--lion-gold);
     cursor: pointer;
     transition: all 0.2s;
+    padding: 20px;
 }
 
 /* Efeito de Hover (Mouse por cima) */
@@ -296,28 +297,23 @@ body {
 }
 
 /* Botão Flutuante do Carrinho */
-.cart-floating-btn {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #121212f6;
-    color: var(--text-light);
+.cart {
+    background: rgba(212, 175, 55, 0.15); 
+    border: 1px solid rgba(212, 175, 55, 0.3);
     border-radius: 50%;
-    width: 85px;
-    height: 85px;
+    width: 40px;
+    height: 40px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid var(--lion-gold);
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    color: var(--lion-gold);
     cursor: pointer;
-    z-index: 10;
+    transition: all 0.2s;
+    padding: 20px;
 }
 
 /* Ícone do Botão do Carrinho */
-.cart-floating-btn .material-symbols-outlined {
+.cart .material-symbols-outlined {
     font-size: 1.5rem;
     color: var(--lion-gold);
     margin-bottom: 2px;
@@ -325,9 +321,23 @@ body {
 
 /* Preço Total no Botão Flutuante */
 .cart-total {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--text-light);
+    position: absolute;
+    top: 5px;
+    right: 25px;
+
+    min-width: 18px;
+    height: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #000000;
+    color: #ffffff;
+
+    border-radius: 50%;
+    font-size: 8px;
+    font-weight: bold;
 }
 
 /* Fundo Escuro Atrás do Modal */
@@ -1190,12 +1200,12 @@ body.dark-theme .badge-low-stock {
    =================================================== */
 
 /* Garante que o ícone consiga se mover/esticar corretamente */
-.cart-floating-btn .material-symbols-outlined {
+.cart .material-symbols-outlined {
   display: inline-block;
 }
 
 /* Aplica a animação apenas no ícone quando a classe estiver ativa */
-.cart-floating-btn .material-symbols-outlined.animar-carrinho {
+.cart .material-symbols-outlined.animar-carrinho {
   animation: pulo 0.8s ease-in-out;
 }
 

@@ -44,15 +44,12 @@
             <!-- Barra do topo com botões e localização -->
             <div class="top-bar">
 
-                <!-- Campo de texto da busca. Começa escondido (sem a classe "open").
-                     O JavaScript vai adicionar/remover a classe "open" para abrir/fechar. -->
-                <input type="text" id="search-input" placeholder="O que vai pedir hoje?" class="hidden-search">
-
-                <!-- Botão da lupa. O JS escuta o clique nele. -->
-                <button class="icon-btn" id="search-btn">
-                    <span class="material-symbols-outlined">search</span>
-                    <!-- "search" é o nome do ícone da lupa no Material Symbols -->
+                 <!-- Botão para alternar entre tema claro e escuro.
+                     O JavaScript usa a classe "theme-toggle-btn" para identificar esse botão. -->
+                <button class="icon-btn">
+                    <span class="material-symbols-outlined theme-toggle-btn">contrast</span>
                 </button>
+               
 
                 <!-- Exibe a localização da cantina -->
                 <div class="location-picker">
@@ -63,11 +60,14 @@
                     <!-- Ícone de seta pra baixo -->
                 </div>
 
-                <!-- Botão para alternar entre tema claro e escuro.
-                     O JavaScript usa a classe "theme-toggle-btn" para identificar esse botão. -->
-                <button class="icon-btn">
-                    <span class="material-symbols-outlined theme-toggle-btn">contrast</span>
-                </button>
+                 <div class="cart">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <!-- Ícone do carrinho -->
+                    <span class="cart-total">0</span>
+                    <!-- Texto do total — começa vazio. O JS preenche quando há itens. -->
+                </div>
+               
+               
             </div>
 
             <!-- Título principal da página -->
@@ -221,19 +221,6 @@
 
         </main>
         <!-- ── FIM DA GRADE DE PRODUTOS ─────────────────────────────── -->
-
-
-        <!-- ══════════════════════════════════════════════════════════
-             BOTÃO FLUTUANTE DO CARRINHO
-             Fica fixo sobre a tela (position: absolute no CSS).
-             O JS escuta o clique nele para abrir o modal do carrinho.
-             ══════════════════════════════════════════════════════════ -->
-        <div class="cart-floating-btn">
-            <span class="material-symbols-outlined">shopping_cart</span>
-            <!-- Ícone do carrinho -->
-            <span class="cart-total"></span>
-            <!-- Texto do total — começa vazio. O JS preenche quando há itens. -->
-        </div>
 
 
         <!-- ══════════════════════════════════════════════════════════

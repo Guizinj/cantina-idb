@@ -94,10 +94,10 @@ function salvarCarrinho() {
 // Usamos .reduce() para somar tudo: percorre cada item e vai acumulando
 // (preco × quantidade) em uma variável chamada 'acc' (acumulador).
 function atualizarTotalFlutuante() {
-    const total = carrinho.reduce((acc, i) => acc + i.preco * i.quantidade, 0);
+    const total = carrinho.reduce((acc, i) => acc + i.quantidade, 0);
 
     // Se o total for maior que zero, mostra o valor. Se não, mostra vazio.
-    telaTotal.textContent = total > 0 ? `R$ ${total.toFixed(2)}` : '';
+    telaTotal.textContent = total > 0 ? ` ${total}` : '0';
     //                                   ↑ toFixed(2) = formata com 2 casas decimais
 }
 
@@ -137,7 +137,7 @@ document.querySelectorAll('.add-btn').forEach(botao => {
 
         // ── Animação do ícone do carrinho ──
         // Pega o ícone de carrinho (o símbolo de sacola)
-        const iconeCarrinho = document.querySelector('.cart-floating-btn .material-symbols-outlined');
+        const iconeCarrinho = document.querySelector('.cart .material-symbols-outlined');
         if (iconeCarrinho) {
             // Adiciona a classe que dispara a animação CSS de "pulo"
             iconeCarrinho.classList.add('animar-carrinho');
@@ -163,7 +163,7 @@ document.getElementById('fechar').addEventListener('click', () => {
 });
 
 // Botão flutuante do carrinho — abre o modal e rola a página para baixo
-document.querySelector('.cart-floating-btn').addEventListener('click', () => {
+document.querySelector('.cart').addEventListener('click', () => {
     document.querySelector('.cart-modal').classList.remove('hidden'); // Mostra o modal
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); // Rola pra baixo
     renderizarCarrinho(); // Monta a lista de itens dentro do modal
@@ -241,7 +241,7 @@ document.getElementById('confirm-cancel').addEventListener('click', () => {
 document.getElementById('confirm-yes').addEventListener('click', () => {
     carrinho = [];         // Esvazia o array do carrinho
     salvarCarrinho();      // Salva o array vazio no localStorage (apaga os dados salvos)
-    telaTotal.textContent = ''; // Limpa o texto do total no botão flutuante
+    telaTotal.textContent = '0'; // Limpa o texto do total no botão flutuante
     document.getElementById('confirm-popup').classList.add('hidden');    // Fecha o popup
     document.querySelector('.cart-modal').classList.add('hidden');       // Fecha o modal do carrinho
 });
