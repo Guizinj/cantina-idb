@@ -1,3 +1,6 @@
+console.log(document.body.scrollHeight);
+console.log(window.innerHeight);
+
 // ═══════════════════════════════════════════════════════════════════════════════
 // ARQUIVO: jschat.js
 // PROJETO: Cantina IDB
@@ -162,10 +165,9 @@ document.getElementById('fechar').addEventListener('click', () => {
     document.querySelector('.cart-modal').classList.add('hidden');
 });
 
-// Botão flutuante do carrinho — abre o modal e rola a página para baixo
+// Botão flutuante do carrinho — abre o modal e rola
 document.querySelector('.cart').addEventListener('click', () => {
     document.querySelector('.cart-modal').classList.remove('hidden'); // Mostra o modal
-    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); // Rola pra baixo
     renderizarCarrinho(); // Monta a lista de itens dentro do modal
 });
 
