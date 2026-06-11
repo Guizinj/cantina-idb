@@ -458,6 +458,7 @@ hr{
     display: inline-block;
     text-align: center;
     width: 20px ;
+    color: var(--text-main)
 }
 
 /* Botão de Remover Item (-) */
