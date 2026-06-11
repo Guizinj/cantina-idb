@@ -581,7 +581,7 @@ hr{
 /* Botão Finalizar Pedido */
 #finalizar-btn {
     background: var(--lion-gold);
-    color: var(--bg-header);
+    color: black;
     border: none;
     padding: 12px 24px;
     border-radius: 16px;
