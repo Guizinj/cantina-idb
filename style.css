@@ -452,13 +452,15 @@ hr{
     gap: 5px;
     border: 1px solid var(--border-color);
     border-radius: 16px;
-    width: 100px;
+    width: 80px;
+    padding: 3px 7px;
 }
 .buton-add-cart > span > strong{
     display: inline-block;
     text-align: center;
     width: 20px ;
-    color: var(--text-main)
+    color: var(--text-main);
+    font-size: 0.80rem;
 }
 
 /* Botão de Remover Item (-) */
@@ -467,7 +469,6 @@ hr{
     border: none;
     color: var(--textofinal);
     width: 25px;
-    height: 28px;
     border-radius: 50%;
     font-weight: bold;
     cursor: pointer;
