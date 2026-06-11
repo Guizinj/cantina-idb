@@ -34,13 +34,13 @@ e acrescentei esta documentação inicial para não modificar o layout.
     --bg-app: #fdfaf2;            /* Areia do Fundo do App */
     --bg-header:  #0f2652;         /* Preto Principal do Cabeçalho */
     --bg-card: #ffffff;           /* Fundo dos cards de produto e linhas do carrinho */
-    --bg-modal: #fdfaf2;          /* Fundo dos modais e do checkout */
+    --bg-modal: #ffffff;          /* Fundo dos modais e do checkout */
     
     --text-main: #1c150c;         /* Marrom de Textos principais */
     --text-muted: #a38a63;        /* Dourado Queimado */
     --text-light: #ffffff;        /* Texto claro para elementos escuros */
     
-    --border-color: #e6dfd1;      /* Divisórias */
+    --border-color: #c9c2b7;      /* Divisórias */
     --input-bg: #ffffff;          /* Fundo do campo de input */
     --input-border: #ddd;         /* Borda do input */
 
@@ -62,7 +62,7 @@ body.dark-theme {
     --text-main: #dce8f5;
     --text-muted: #7aaac8;
     
-    --border-color: #1a2e4a;
+    --border-color: #243d61;
     --input-bg: #0c1d38;
     --input-border: #1e3558;
     --textofinal: #ffffff;
@@ -423,8 +423,7 @@ hr{
     justify-content: space-between;
     background-color: var(--bg-card); 
     padding: 12px 14px;
-    border-radius: 16px;
-    border: 1px solid var(--border-color); 
+    border-bottom: 1px solid var(--border-color); 
     width: 100%;
     box-shadow: 0 2px 5px rgba(0,0,0,0.02);
     transition: background-color 0.3s ease, border-color 0.3s ease;
