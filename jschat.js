@@ -219,7 +219,7 @@ function renderizarCarrinho() {
             <div class="item-linha">
                 <div class="item-info">
                     <img src="${item.imagem}" alt="${item.nome}"
-                         style="width:60px;height:60px;object-fit:contain;margin-right:10px;border-radius:5px">
+                         style="width:50px;height:50px;object-fit:contain;margin-right:10px;border-radius:5px">
                     <span>${item.nome}
                     <br>
                     <strong>R$${(item.preco * item.quantidade).toFixed(2)}</span></strong>
