@@ -448,9 +448,16 @@ hr{
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 5px;
     border: 1px solid var(--border-color);
     border-radius: 16px;
+    width: 100px;
+}
+.buton-add-cart > span > strong{
+    display: inline-block;
+    text-align: center;
+    width: 20px ;
 }
 
 /* Botão de Remover Item (-) */
@@ -458,7 +465,7 @@ hr{
     background-color: var(--bg-card);
     border: none;
     color: var(--textofinal);
-    width: 28px;
+    width: 25px;
     height: 28px;
     border-radius: 50%;
     font-weight: bold;
@@ -467,7 +474,6 @@ hr{
     justify-content: center;
     align-items: center;
     transition: all 0.2s;
-    margin: 0px 8px;
 }
 
 /* Botão Fechar Modal (X) */
