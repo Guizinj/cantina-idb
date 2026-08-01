@@ -11,7 +11,7 @@
 // É boa prática deixar tudo no topo, separado da lógica.
 // ─────────────────────────────────────────────
 
-const MINHA_CHAVE_PIX = '12428552465'; // Sua chave PIX (CPF, e-mail, telefone, etc.)
+const MINHA_CHAVE_PIX = '13283301417'; // Sua chave PIX (CPF, e-mail, telefone, etc.)
 const WHATSAPP_NUMERO = '5581993369736'; // Número do WhatsApp que vai receber os pedidos
                                           // Formato: DDI + DDD + número (sem espaços ou traços)
 
@@ -430,7 +430,7 @@ TOTAL: R$ ${total.toFixed(2)}
     // Cancela qualquer cronômetro anterior que possa estar rodando
     clearInterval(cronometro);
 
-    let tempoRestante = 10; // O usuário precisa esperar 10 segundos antes de poder marcar o checkbox
+    let tempoRestante = 7; // O usuário precisa esperar 10 segundos antes de poder marcar o checkbox
     labelCheck.style.opacity = '0.5'; // Deixa o label mais transparente para indicar que está bloqueado
 
     // setInterval executa uma função repetidamente a cada X milissegundos
@@ -473,7 +473,7 @@ document.getElementById('fechar-pix').addEventListener('click', () => {
 
 // Botão "Copiar chave" do PIX
 document.getElementById('pix-copiar-btn').addEventListener('click', () => {
-    const chave = document.getElementById('pix-chave').textContent; // Pega o texto da chave
+    const chave = document.getElementById('pix-chave').textContent.trim(); // Pega o texto da chave
 
     // navigator.clipboard.writeText() copia o texto para a área de transferência do celular/pc
     // É uma Promise: .then() executa quando a cópia for bem-sucedida
@@ -486,7 +486,7 @@ document.getElementById('pix-copiar-btn').addEventListener('click', () => {
         // Após 2,5 segundos, volta ao estado original
         setTimeout(() => {
             btn.classList.remove('copiado');
-            txt.textContent = 'Copiar chave';
+            txt.textContent = 'Copiar chave Pix';
         }, 2500);
     });
 });

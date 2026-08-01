@@ -1045,6 +1045,10 @@ hr{
     color: var(--text-main);
     word-break: break-all;
 }
+.pix-info{
+    display: flex
+    
+}
 
 .pix-copiar-btn {
     display: flex;
