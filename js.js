@@ -535,17 +535,16 @@ document.getElementById('pix-liberar-btn').addEventListener('click', () => {
     document.body.style.width = '';
     document.querySelector('.cart-confirm').classList.add('hidden');
 
-    // Limpa o carrinho completamente
-    carrinho = [];
-    salvarCarrinho();           // Salva o carrinho vazio no localStorage
-    telaTotal.textContent = ''; // Limpa o total do botão flutuante
 
     // Mostra o popup de sucesso ("Estamos separando seu pedido!")
     const popup = document.getElementById('popup-sucesso');
     popup.classList.remove('hidden'); // Mostra o popup
+    popup.addEventListener('click', () => {
+        popup.classList.add('hidden');
+    })
 
-    // Após 5 segundos, esconde o popup automaticamente
-    setTimeout(() => popup.classList.add('hidden'), 5000);
+    // Após 10 segundos, esconde o popup automaticamente
+    setTimeout(() => popup.classList.add('hidden'), 15000);
 });
 
 
