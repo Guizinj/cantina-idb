@@ -11,7 +11,7 @@
 // É boa prática deixar tudo no topo, separado da lógica.
 // ─────────────────────────────────────────────
 
-const MINHA_CHAVE_PIX = '13283301417'; // Sua chave PIX (CPF, e-mail, telefone, etc.)
+const MINHA_CHAVE_PIX = '12428552465'; // Sua chave PIX (CPF, e-mail, telefone, etc.)
 const WHATSAPP_NUMERO = '5581993369736'; // Número do WhatsApp que vai receber os pedidos
                                           // Formato: DDI + DDD + número (sem espaços ou traços)
 
